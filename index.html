@@ -4,170 +4,232 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aliança Investimentos & Consórcios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #020617;
-            --primary-blue: #1d4ed8;
-            --gold: #d97706;
-            --gold-light: #f59e0b;
+            --dark-navy: #020813;
+            --gold-gradient: linear-gradient(135deg, #c5a880 0%, #e2c9a1 50%, #b39268 100%);
+            --gold-solid: #b39268;
+            --blue-accent: #1e40af;
+            --text-light: #f8fafc;
             --text-dark: #0f172a;
             --text-muted: #64748b;
         }
-        
+
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
         body { background-color: #ffffff; color: var(--text-dark); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-        
-        /* NAVBAR PREMIUM */
-        .navbar { 
-            background: #ffffff; 
-            padding: 15px 8%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            box-shadow: 0 4px 30px rgba(0,0,0,0.02); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            border-bottom: 1px solid #f1f5f9;
+
+        /* NAVBAR EMBUTIDA NO COMPONENT PREMIUM */
+        .navbar {
+            background: transparent;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
         }
 
-        /* LOGO ESTILO BANCO COPIANDO A FOTO */
-        .brand-box {
-            display: flex;
+        /* HERO COMPONENT - COPIANDO FIELMENTE A FOTO DA REFERÊNCIA */
+        .hero-section {
+            background: radial-gradient(circle at center, #0a162b 0%, #020813 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding: 160px 20px 120px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid #111e36;
+        }
+        
+        /* Efeito de linhas finas de luxo no fundo */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        /* LOGO FIEL À IMAGEM DO TRIPLO TRIÂNGULO SOBERANO DOURADO */
+        .brand-wrapper {
+            display: inline-flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-        }
-        .logo-art {
+            margin-bottom: 40px;
+            z-index: 2;
             position: relative;
-            width: 60px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 5px;
         }
-        .triangle-blue {
-            position: absolute;
-            width: 0; height: 0;
-            border-left: 22px solid transparent;
-            border-right: 22px solid transparent;
-            border-bottom: 38px solid var(--primary-blue);
-        }
-        .triangle-gold {
-            position: absolute;
-            width: 0; height: 0;
-            border-left: 16px solid transparent;
-            border-right: 16px solid transparent;
-            border-bottom: 28px solid var(--gold);
-            top: 14px;
-            transform: rotate(180deg);
-            opacity: 0.9;
-        }
-        .brand-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: 6px;
-            color: #0f172a;
-            line-height: 1;
-        }
-        .brand-subtitle {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--text-muted);
-            font-weight: 600;
-            margin-top: 5px;
-        }
-
-        /* HERO - INTRODUÇÃO COM DESIGN ULTRA ESCURO DO EXEMPLO */
-        .hero {
-            background: radial-gradient(circle at center, #0b1528 0%, #020617 100%);
-            color: #ffffff;
-            text-align: center;
-            padding: 120px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .hero .brand-title { color: #ffffff; font-size: 36px; letter-spacing: 8px; }
-        .hero .brand-subtitle { color: #94a3b8; letter-spacing: 4px; font-size: 11px; margin-bottom: 40px; }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 700; max-width: 850px; margin: 0 auto 20px; line-height: 1.3; }
-        .hero h1 span { color: var(--gold-light); text-shadow: 0 0 30px rgba(245,158,11,0.3); }
-        .hero p { font-size: 16px; color: #94a3b8; max-width: 600px; margin: 0 auto 40px; font-weight: 300; }
         
-        .btn-main {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            color: #020617; border: none; padding: 18px 45px; border-radius: 50px;
-            font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px;
-            cursor: pointer; transition: 0.3s ease; box-shadow: 0 10px 30px rgba(217,119,6,0.3);
+        .gold-logo-box {
+            position: relative;
+            width: 80px;
+            height: 70px;
+            margin-bottom: 15px;
         }
-        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(217,119,6,0.5); }
 
-        /* SEÇÃO QUEM SOMOS */
-        .about-section { background: #ffffff; padding: 100px 8%; text-align: center; }
+        .t-layer {
+            position: absolute;
+            width: 0; height: 0;
+            border-left: 26px solid transparent;
+            border-right: 26px solid transparent;
+            border-bottom: 45px solid transparent;
+            left: 14px;
+        }
+
+        .t-blue {
+            border-bottom-color: #0b2559;
+            top: 0;
+            transform: scale(1.1);
+        }
+
+        .t-gold-1 {
+            border-bottom-color: #b39268;
+            top: 4px;
+            left: 8px;
+        }
+
+        .t-gold-2 {
+            border-bottom-color: #e2c9a1;
+            top: 12px;
+            left: 20px;
+            opacity: 0.95;
+        }
+
+        .main-title-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 34px;
+            font-weight: 500;
+            letter-spacing: 12px;
+            color: #ffffff;
+            line-height: 1;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            margin-left: 12px; /* Compensa o efeito do letter-spacing no centro */
+        }
+
+        .sub-title-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #b39268;
+            font-weight: 600;
+            margin-top: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* TEXTOS PRINCIPAIS DO CAPÍTULO */
+        .hero-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            max-width: 900px;
+            margin: 0 auto 25px;
+            line-height: 1.35;
+        }
+
+        .hero-section h1 span {
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 16px;
+            color: #8fa0ba;
+            max-width: 650px;
+            margin: 0 auto 45px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* BOTÃO LUXO ARREDONDADO IGUAL À FOTO */
+        .btn-gold-action {
+            background: var(--gold-gradient);
+            color: #030816;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12.5px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(179, 146, 104, 0.35);
+        }
+
+        .btn-gold-action:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(179, 146, 104, 0.6);
+            letter-spacing: 2.5px;
+        }
+
+        /* SEÇÃO QUEM SOMOS - SEPARADA CLEAN */
+        .about-section {
+            background: #ffffff;
+            padding: 120px 8%;
+            text-align: center;
+        }
         .about-inner { max-width: 800px; margin: 0 auto; }
-        .about-section h2 { font-family: 'Montserrat', sans-serif; color: #020617; font-size: 36px; margin-bottom: 25px; font-weight: 700; }
-        .about-section h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary-blue); margin: 12px auto 0; border-radius: 2px; }
-        .about-section p { color: var(--text-muted); font-size: 16px; line-height: 1.9; }
+        .about-section h2 { font-family: 'Montserrat', sans-serif; color: var(--dark-navy); font-size: 38px; font-weight: 600; margin-bottom: 30px; letter-spacing: 1px; }
+        .about-section h2::after { content: ''; display: block; width: 40px; height: 3px; background: var(--gold-solid); margin: 15px auto 0; }
+        .about-section p { color: var(--text-muted); font-size: 16.5px; line-height: 2; font-weight: 400; }
 
         /* SEÇÃO SIMULADORES */
-        .sim-section { padding: 100px 8%; background-color: #f8fafc; border-top: 1px solid #e2e8f0; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-family: 'Montserrat', sans-serif; font-size: 36px; color: #020617; font-weight: 700; }
-        .section-header p { color: var(--text-muted); font-size: 15px; margin-top: 5px; }
+        .sim-section { padding: 120px 8%; background-color: #f8fafc; border-top: 1px solid #e2e8f0; }
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-header h2 { font-family: 'Montserrat', sans-serif; font-size: 38px; color: var(--dark-navy); font-weight: 600; }
+        .section-header p { color: var(--text-muted); font-size: 16px; margin-top: 8px; }
 
-        .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 35px; max-width: 1300px; margin: 0 auto; }
-        .sim-card { background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; display: flex; flex-direction: column; transition: 0.3s; }
-        .sim-card:hover { transform: translateY(-5px); box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+        .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; max-width: 1300px; margin: 0 auto; }
+        .sim-card { background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .sim-card:hover { transform: translateY(-5px); box-shadow: 0 35px 70px rgba(0,0,0,0.06); }
         
-        .card-img { height: 240px; width: 100%; object-fit: cover; }
-        .card-body { padding: 35px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-img { height: 250px; width: 100%; object-fit: cover; }
+        .card-body { padding: 40px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
         
-        .card-body h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; color: #020617; margin-bottom: 8px; font-weight: 700; }
-        .card-body .badge-rules { font-size: 11px; color: var(--primary-blue); font-weight: 700; margin-bottom: 25px; background: #eff6ff; padding: 8px 14px; border-radius: 8px; display: inline-block; letter-spacing: 0.5px; }
+        .card-body h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; color: var(--dark-navy); margin-bottom: 10px; font-weight: 600; }
+        .card-body .badge-rules { font-size: 11px; color: #1e40af; font-weight: 700; margin-bottom: 30px; background: #eff6ff; padding: 10px 16px; border-radius: 8px; display: inline-block; letter-spacing: 0.5px; }
         
-        .input-wrap { margin-bottom: 22px; }
-        .input-wrap label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 8px; }
-        .input-wrap label span { color: var(--primary-blue); font-size: 14px; font-weight: 700; }
-        .input-wrap input { width: 100%; accent-color: var(--primary-blue); height: 6px; border-radius: 5px; cursor: pointer; }
+        .input-wrap { margin-bottom: 25px; }
+        .input-wrap label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 10px; }
+        .input-wrap label span { color: #1e40af; font-size: 15px; font-weight: 700; }
+        .input-wrap input { width: 100%; accent-color: #1e40af; height: 6px; border-radius: 5px; cursor: pointer; }
         
-        .result-box { background: linear-gradient(135deg, #f0f5ff 0%, #e0ecff 100%); padding: 22px; border-radius: 16px; text-align: center; margin-top: 15px; border: 1px solid rgba(59,130,246,0.1); }
+        .result-box { background: linear-gradient(135deg, #f0f5ff 0%, #e0ecff 100%); padding: 25px; border-radius: 16px; text-align: center; margin-top: 15px; border: 1px solid rgba(59,130,246,0.1); }
         .result-box p { font-size: 11px; color: #475569; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .result-box strong { font-size: 32px; color: #020617; display: block; font-family: 'Montserrat', sans-serif; margin-top: 4px; font-weight: 700; }
+        .result-box strong { font-size: 34px; color: var(--dark-navy); display: block; font-family: 'Montserrat', sans-serif; margin-top: 5px; font-weight: 700; }
         
-        .btn-action { width: 100%; background: #020617; color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 600; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; cursor: pointer; margin-top: 25px; transition: 0.3s; }
-        .btn-action:hover { background: var(--primary-blue); }
+        .btn-action { width: 100%; background: var(--dark-navy); color: white; border: none; padding: 18px; border-radius: 12px; font-weight: 600; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; cursor: pointer; margin-top: 30px; transition: background 0.3s; }
+        .btn-action:hover { background: #1e40af; }
 
-        footer { background: #020617; color: #64748b; text-align: center; padding: 40px 20px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer { background: var(--dark-navy); color: #475569; text-align: center; padding: 50px 20px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.03); letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="brand-box">
-            <div class="logo-art">
-                <div class="triangle-blue"></div>
-                <div class="triangle-gold"></div>
+    <section class="hero-section">
+        <div class="brand-wrapper">
+            <div class="gold-logo-box">
+                <div class="t-layer t-blue"></div>
+                <div class="t-layer t-gold-1"></div>
+                <div class="t-layer t-gold-2"></div>
             </div>
-            <span class="brand-title">ALIANÇA</span>
-            <span class="brand-subtitle">Investimentos & Consórcios</span>
+            <span class="main-title-text">ALIANÇA</span>
+            <span class="sub-title-text">Investimentos & Consórcios</span>
         </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-logo-box">
-            <div class="logo-art" style="transform: scale(1.4); margin-bottom: 20px;">
-                <div class="triangle-blue"></div>
-                <div class="triangle-gold"></div>
-            </div>
-            <span class="brand-title">ALIANÇA</span>
-            <span class="brand-subtitle" style="margin-bottom:0;">Investimentos & Consórcios</span>
-        </div>
-        <h1>Soluções financeiras de alta performance para <span>seus sonhos.</span></h1>
+        <h1>Soluções inteligentes para <span>seus objetivos.</span></h1>
         <p>Abaixo você pode conhecer nossa história e realizar simulações financeiras completas com taxas customizadas em tempo real.</p>
-        <button class="btn-main" onclick="document.getElementById('simulador').scrollIntoView()">Ir direto para Simulação</button>
+        <button class="btn-gold-action" onclick="document.getElementById('simulador').scrollIntoView()">Ir direto para Simulação</button>
     </section>
 
     <section class="about-section">
@@ -180,17 +242,17 @@
     <section class="sim-section" id="simulador">
         <div class="section-header">
             <h2>Simulador de Crédito Corporativo</h2>
-            <p>Escolha a modalidade desejada para calcular suas parcelas sob as diretrizes vigentes</p>
+            <p>Monitore parcelas e taxas com validação algorítmica direta</p>
         </div>
         
         <div class="sim-grid">
             
             <div class="sim-card">
-                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&auto=format&fit=crop&q=80" alt="Automóvel de Luxo" class="card-img">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&auto=format&fit=crop&q=80" alt="Automóvel Premium" class="card-img">
                 <div class="card-body">
                     <div>
                         <h3>Automóveis</h3>
-                        <div class="badge-rules">Mínimo: R$ 20k | Entrada Mín: R$ 3.500 | Parcela Mín: R$ 400</div>
+                        <div class="badge-rules">Crédito Mín: R$ 20k | Entrada Mín: R$ 3.500 | Parcela Mín: R$ 400</div>
                         
                         <div class="input-wrap">
                             <label>Valor do Veículo: <span id="autoValText">R$ 60.000</span></label>
@@ -201,24 +263,24 @@
                             <input type="range" min="3500" max="100000" step="500" value="3500" id="autoEnt" oninput="calcAuto()">
                         </div>
                         <div class="input-wrap">
-                            <label>Prazo Escolhido: <span id="autoPrazoText">60 meses</span></label>
+                            <label>Prazo de Pagamento: <span id="autoPrazoText">60 meses</span></label>
                             <input type="range" min="36" max="100" step="12" value="60" id="autoPrazo" oninput="calcAuto()">
                         </div>
                     </div>
                     <div class="result-box">
-                        <p>Parcela Mensal Fixa</p>
+                        <p>Parcela Mensal Corrigida</p>
                         <strong id="autoTotal">R$ 0,00</strong>
                     </div>
-                    <button class="btn-action" onclick="alert('Simulação enviada para a mesa de crédito automotivo!')">Aprovar meu Crédito</button>
+                    <button class="btn-action" onclick="alert('Solicitação de análise de automóvel enviada com sucesso!')">Solicitar Crédito</button>
                 </div>
             </div>
 
             <div class="sim-card">
-                <img src="https://images.unsplash.com/photo-1594142176465-38b4da021008?w=600&auto=format&fit=crop&q=80" alt="Maquinário Agro Pesados" class="card-img">
+                <img src="https://images.unsplash.com/photo-1530268578403-bf6e898039cc?w=600&auto=format&fit=crop&q=80" alt="Agro Veículos Pesados" class="card-img">
                 <div class="card-body">
                     <div>
                         <h3>Agro & Pesados</h3>
-                        <div class="badge-rules">Mínimo: R$ 100k | Entrada Mín: R$ 15.000</div>
+                        <div class="badge-rules">Crédito Mín: R$ 100k | Entrada Mín: R$ 15.000</div>
                         
                         <div class="input-wrap">
                             <label>Valor do Crédito: <span id="agroValText">R$ 300.000</span></label>
@@ -229,24 +291,24 @@
                             <input type="range" min="15000" max="500000" step="5000" value="15000" id="agroEnt" oninput="calcPesados()">
                         </div>
                         <div class="input-wrap">
-                            <label>Prazo Escolhido: <span id="agroPrazoText">100 meses</span></label>
+                            <label>Prazo de Pagamento: <span id="agroPrazoText">100 meses</span></label>
                             <input type="range" min="60" max="120" step="12" value="100" id="agroPrazo" oninput="calcPesados()">
                         </div>
                     </div>
                     <div class="result-box">
-                        <p>Parcela Mensal Fixa</p>
+                        <p>Parcela Mensal Corrigida</p>
                         <strong id="agroTotal">R$ 0,00</strong>
                     </div>
-                    <button class="btn-action" onclick="alert('Simulação enviada para a mesa de crédito Agro/Pesados!')">Aprovar meu Crédito</button>
+                    <button class="btn-action" onclick="alert('Solicitação de análise Agro/Pesados enviada com sucesso!')">Solicitar Crédito</button>
                 </div>
             </div>
 
             <div class="sim-card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80" alt="Imóvel Alto Padrão" class="card-img">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80" alt="Imóvel de Luxo" class="card-img">
                 <div class="card-body">
                     <div>
                         <h3>Imobiliário</h3>
-                        <div class="badge-rules">Mínimo: R$ 150k | Entrada Mín: R$ 15.000</div>
+                        <div class="badge-rules">Crédito Mín: R$ 150k | Entrada Mín: R$ 15.000</div>
                         
                         <div class="input-wrap">
                             <label>Crédito Imóvel: <span id="imoValText">R$ 400.000</span></label>
@@ -257,15 +319,15 @@
                             <input type="range" min="15000" max="1000000" step="5000" value="15000" id="imoEnt" oninput="calcImo()">
                         </div>
                         <div class="input-wrap">
-                            <label>Prazo Escolhido: <span id="imoPrazoText">180 meses</span></label>
+                            <label>Prazo de Pagamento: <span id="imoPrazoText">180 meses</span></label>
                             <input type="range" min="120" max="240" step="12" value="180" id="imoPrazo" oninput="calcImo()">
                         </div>
                     </div>
                     <div class="result-box">
-                        <p>Parcela Mensal Fixa</p>
+                        <p>Parcela Mensal Corrigida</p>
                         <strong id="imoTotal">R$ 0,00</strong>
                     </div>
-                    <button class="btn-action" onclick="alert('Simulação enviada para a mesa de crédito Imobiliário!')">Aprovar meu Crédito</button>
+                    <button class="btn-action" onclick="alert('Solicitação de análise Imobiliária enviada com sucesso!')">Solicitar Crédito</button>
                 </div>
             </div>
 
@@ -290,8 +352,8 @@
             document.getElementById('autoEntText').innerText = format(ent);
             document.getElementById('autoPrazoText').innerText = prazo + ' meses';
 
-            let juros = 1.19; // 19% fixo até 50 mil
-            if (val >= 60000) { juros = 1.225; } // Entre 60k e 200k varia de 21% a 24%
+            let juros = 1.19; // 19% até 50 mil
+            if (val >= 60000) { juros = 1.225; } // 21% a 24% acima disso (média 22.5%)
 
             let liquido = val - ent;
             let parc = (liquido * juros) / prazo;
@@ -311,7 +373,7 @@
             document.getElementById('agroEntText').innerText = format(ent);
             document.getElementById('agroPrazoText').innerText = prazo + ' meses';
 
-            let juros = 1.27; // Entre 26% e 28% para pesados
+            let juros = 1.27; // 26% a 28% para pesados
             let liquido = val - ent;
             let parc = (liquido * juros) / prazo;
 
@@ -329,7 +391,7 @@
             document.getElementById('imoEntText').innerText = format(ent);
             document.getElementById('imoPrazoText').innerText = prazo + ' meses';
 
-            let juros = 1.26; // Entre 25% e 27% para imóveis
+            let juros = 1.26; // 25% a 27% para imóveis
             let liquido = val - ent;
             let parc = (liquido * juros) / prazo;
 

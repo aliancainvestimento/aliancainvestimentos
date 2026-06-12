@@ -14,48 +14,59 @@
             --text-dark: #0f172a;
             --text-muted: #475569;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
         body { background-color: #f8fafc; color: var(--text-dark); font-family: 'Inter', sans-serif; line-height: 1.6; }
         
+        /* NAVBAR */
         .navbar { background: #ffffff; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; }
         .brand { display: flex; flex-direction: column; }
         .brand-name { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 3px; color: var(--dark-blue); }
         .brand-sub { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-blue); font-weight: 600; }
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; }
         
-        .hero-container { max-width: 1200px; margin: 50px auto; padding: 0 5%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
-        .hero-left h4 { color: var(--primary-blue); text-transform: uppercase; font-size: 12px; letter-spacing: 2px; font-weight: 700; margin-bottom: 15px; font-family: 'Montserrat', sans-serif; }
-        .hero-left h1 { font-family: 'Montserrat', sans-serif; font-size: 42px; color: var(--dark-blue); line-height: 1.2; margin-bottom: 20px; font-weight: 700; }
-        .hero-left h1 span { color: var(--primary-blue); }
-        .hero-left .subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 30px; }
-        
-        .tabs-wrapper { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .tab-btn { background: #ffffff; border: 1px solid #e2e8f0; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
-        .tab-btn:hover, .tab-btn.active-tab { border-color: var(--primary-blue); color: var(--primary-blue); background: var(--light-blue); }
-        
-        .sim-card { background: #ffffff; padding: 30px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; }
-        .sim-panel { display: none; }
-        .sim-panel.active-panel { display: block; }
-        .sim-card h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; color: var(--dark-blue); margin-bottom: 5px; }
-        .sim-card .sim-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
-        
-        .range-group { margin-bottom: 20px; }
-        .range-group label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 5px; }
-        .range-group label span { color: var(--primary-blue); }
-        .range-group input { width: 100%; accent-color: var(--primary-blue); }
-        
-        .result-box { background: var(--light-blue); padding: 15px; border-radius: 12px; text-align: center; margin-top: 20px; border: 1px dashed rgba(59, 130, 246, 0.3); }
-        .result-box p { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
-        .result-box strong { font-size: 28px; color: var(--dark-blue); display: block; font-family: 'Montserrat', sans-serif; }
-        .btn-submit { width: 100%; background: var(--primary-blue); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 600; text-transform: uppercase; font-size: 13px; cursor: pointer; margin-top: 15px; }
-        
-        .about-section { background: #ffffff; padding: 60px 8%; border-top: 1px solid #f1f5f9; text-align: center; }
+        /* HERO / HOME / LOGO CAPRICHADA */
+        .hero { text-align: center; padding: 80px 20px; background: radial-gradient(circle at center, #ffffff 0%, #eff6ff 100%); border-bottom: 1px solid #e2e8f0; }
+        .logo-box { margin-bottom: 25px; }
+        .logo-icon { font-size: 60px; color: var(--primary-blue); margin-bottom: 10px; filter: drop-shadow(0 4px 6px rgba(29, 78, 216, 0.2)); }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 48px; color: var(--dark-blue); font-weight: 700; letter-spacing: 4px; }
+        .hero h1 span { color: var(--primary-blue); }
+        .hero p { font-size: 16px; color: var(--text-muted); max-width: 600px; margin: 15px auto 30px; }
+        .btn-start { background: var(--primary-blue); color: white; border: none; padding: 16px 35px; border-radius: 8px; font-weight: 600; text-transform: uppercase; font-size: 14px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3); }
+        .btn-start:hover { background: var(--dark-blue); transform: translateY(-2px); }
+
+        /* SEÇÃO QUEM SOMOS */
+        .about-section { background: #ffffff; padding: 80px 8%; text-align: center; border-bottom: 1px solid #f1f5f9; }
         .about-container { max-width: 800px; margin: 0 auto; }
-        .about-section h2 { font-family: 'Montserrat', sans-serif; color: var(--dark-blue); font-size: 28px; margin-bottom: 15px; }
-        .about-section p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
-        footer { background: var(--dark-blue); color: #ffffff; text-align: center; padding: 30px 20px; font-size: 12px; opacity: 0.9; }
-        @media(max-width: 968px) { .hero-container { grid-template-columns: 1fr; } .nav-links { display: none; } }
+        .about-section h2 { font-family: 'Montserrat', sans-serif; color: var(--dark-blue); font-size: 32px; margin-bottom: 20px; position: relative; }
+        .about-section h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary-blue); margin: 10px auto 0; border-radius: 2px; }
+        .about-section p { color: var(--text-muted); font-size: 16px; line-height: 1.8; }
+
+        /* SEÇÃO SIMULADOR COM CARDS DE IMAGEM */
+        .sim-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
+        .sim-section-title { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 32px; color: var(--dark-blue); margin-bottom: 40px; }
+        
+        .grid-simulador { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .sim-card { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; display: flex; flex-direction: column; }
+        
+        .card-img { height: 200px; width: 100%; object-fit: cover; background-color: #cbd5e1; }
+        .card-body { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .card-body h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; color: var(--dark-blue); margin-bottom: 10px; }
+        .card-body .rules-text { font-size: 12px; color: var(--primary-blue); font-weight: 600; margin-bottom: 20px; background: var(--light-blue); padding: 8px 12px; border-radius: 6px; }
+        
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+        .input-group label span { color: var(--dark-blue); }
+        .input-group input { width: 100%; accent-color: var(--primary-blue); }
+        
+        .result-box { background: var(--light-blue); padding: 18px; border-radius: 12px; text-align: center; margin-top: auto; border: 1px dashed rgba(59, 130, 246, 0.3); }
+        .result-box p { font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 500; }
+        .result-box strong { font-size: 26px; color: var(--dark-blue); display: block; font-family: 'Montserrat', sans-serif; margin-top: 2px; }
+        
+        .btn-action { width: 100%; background: var(--primary-blue); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 600; text-transform: uppercase; font-size: 13px; cursor: pointer; margin-top: 20px; transition: 0.3s; }
+        .btn-action:hover { background: var(--dark-blue); }
+
+        footer { background: var(--dark-blue); color: #ffffff; text-align: center; padding: 40px 20px; font-size: 13px; }
+        footer p { opacity: 0.7; }
     </style>
 </head>
 <body>
@@ -65,76 +76,115 @@
             <span class="brand-name">ALIANÇA</span>
             <span class="brand-sub">Investimentos & Consórcios</span>
         </div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#quem-somos">Quem somos</a></li>
-            <li><a href="#solucoes">Soluções</a></li>
-        </ul>
     </nav>
 
-    <main class="hero-container" id="inicio">
-        <div class="hero-left">
-            <h4>Invista com confiança.</h4>
-            <h1>Soluções inteligentes para <span>seus objetivos.</span></h1>
-            <p class="subtitle">Na Aliança Investimentos & Consórcios, você encontra as melhores opções em investimentos, consórcios e crédito para conquistar seus planos com segurança e tranquilidade.</p>
-            
-            <div class="tabs-wrapper" id="solucoes">
-                <button class="tab-btn active-tab" onclick="switchTab('auto', this)"><i class="fa-solid fa-car"></i> Automóveis</button>
-                <button class="tab-btn" onclick="switchTab('agro', this)"><i class="fa-solid fa-tractor"></i> Agro & Pesados</button>
-                <button class="tab-btn" onclick="switchTab('imo', this)"><i class="fa-solid fa-house"></i> Imobiliário</button>
-            </div>
+    <section class="hero">
+        <div class="logo-box">
+            <i class="fa-solid fa-layer-group logo-icon"></i>
+            <div class="brand-name" style="font-size: 36px; letter-spacing: 6px;">ALIANÇA</div>
+            <div class="brand-sub" style="font-size: 12px; letter-spacing: 3px;">Investimentos & Consórcios</div>
         </div>
+        <h1>Soluções inteligentes para <span>seus objetivos.</span></h1>
+        <p>Abaixo você pode conhecer nossa história e realizar simulações financeiras completas com taxas customizadas em tempo real.</p>
+        <button class="btn-start" onclick="document.getElementById('simulador').scrollIntoView()">Ir direto para Simulação</button>
+    </section>
 
-        <div class="sim-card">
-            <div id="panel-auto" class="sim-panel active-panel">
-                <h3>Simule agora mesmo</h3>
-                <p class="sim-desc">Faça uma simulação gratuita e descubra a melhor opção em Crédito Automotivo.</p>
-                <div class="range-group">
-                    <label>Valor do Veículo: <span id="autoValText">R$ 60.000</span></label>
-                    <input type="range" min="20000" max="200000" step="5000" value="60000" oninput="runCalc('auto')">
-                </div>
-                <div class="range-group">
-                    <label>Prazo: <span id="autoPrazoText">60 meses</span></label>
-                    <input type="range" min="36" max="100" step="12" value="60" oninput="runCalc('auto')">
-                </div>
-                <div class="result-box"><p>Parcela Mensal Estimada</p><strong id="autoTotal">R$ 1.180,00</strong></div>
-            </div>
-
-            <div id="panel-agro" class="sim-panel">
-                <h3>Simule Linha Agro & Pesados</h3>
-                <p class="sim-desc">Planeje a compra de maquinários e frotas com taxas estruturadas.</p>
-                <div class="range-group">
-                    <label>Valor do Investimento: <span id="agroValText">R$ 300.000</span></label>
-                    <input type="range" min="150000" max="2000000" step="50000" value="300000" oninput="runCalc('agro')">
-                </div>
-                <div class="range-group">
-                    <label>Prazo: <span id="agroPrazoText">100 meses</span></label>
-                    <input type="range" min="60" max="120" step="12" value="100" oninput="runCalc('agro')">
-                </div>
-                <div class="result-box"><p>Parcela Mensal Estimada</p><strong id="agroTotal">R$ 3.450,00</strong></div>
-            </div>
-
-            <div id="panel-imo" class="sim-panel">
-                <h3>Simule Crédito Imobiliário</h3>
-                <p class="sim-desc">Casas, terrenos ou galpões comerciais planejados.</p>
-                <div class="range-group">
-                    <label>Valor do Imóvel: <span id="imoValText">R$ 400.000</span></label>
-                    <input type="range" min="200000" max="5000000" step="50000" value="400000" oninput="runCalc('imo')">
-                </div>
-                <div class="range-group">
-                    <label>Prazo: <span id="imoPrazoText">180 meses</span></label>
-                    <input type="range" min="120" max="240" step="12" value="180" oninput="runCalc('imo')">
-                </div>
-                <div class="result-box"><p>Parcela Mensal Estimada</p><strong id="imoTotal">R$ 2.488,00</strong></div>
-            </div>
-            <button class="btn-submit" onclick="alert('Simulação enviada! Entraremos em contato.')">Simular Agora</button>
-        </div>
-    </main>
-
-    <section class="about-section" id="quem-somos">
+    <section class="about-section">
         <div class="about-container">
             <h2>Quem Somos</h2>
             <p>Somos uma financeira totalmente completa, que está há mais de 4 anos no mercado realizando sonhos de quem deseja seu primeiro bem. Pautados na transparência, solidez e compromisso com o futuro, conectamos nossos clientes às melhores linhas de crédito, consórcios estruturados e investimentos de forma personalizada, garantindo máxima excelência na ampliação do seu patrimônio.</p>
+        </div>
+    </section>
+
+    <section class="sim-section" id="simulador">
+        <h2 class="sim-section-title">Escolha a sua linha de crédito</h2>
+        
+        <div class="grid-simulador">
+            
+            <div class="sim-card">
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600&auto=format&fit=crop&q=80" alt="Automóvel" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <h3>Linha Automotiva</h3>
+                        <div class="rules-text">Crédito mín: R$ 20k | Ent. mín: R$ 3.500</div>
+                        
+                        <div class="input-group">
+                            <label>Valor do Veículo: <span id="autoValText">R$ 60.000</span></label>
+                            <input type="range" min="20000" max="200000" step="5000" value="60000" id="autoVal" oninput="calcularAutomovel()">
+                        </div>
+                        <div class="input-group">
+                            <label>Valor da Entrada: <span id="autoEntText">R$ 3.500</span></label>
+                            <input type="range" min="3500" max="100000" step="500" value="3500" id="autoEnt" oninput="calcularAutomovel()">
+                        </div>
+                        <div class="input-group">
+                            <label>Prazo de Pagamento: <span id="autoPrazoText">60 meses</span></label>
+                            <input type="range" min="36" max="100" step="12" value="60" id="autoPrazo" oninput="calcularAutomovel()">
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <p>Parcela Mensal Corrigida</p>
+                        <strong id="autoTotal">R$ 1.258,33</strong>
+                    </div>
+                    <button class="btn-action" onclick="alert('Simulação Automotiva enviada!')">Solicitar Análise</button>
+                </div>
+            </div>
+
+            <div class="sim-card">
+                <img src="https://images.unsplash.com/photo-1594142176465-38b4da021008?w=600&auto=format&fit=crop&q=80" alt="Pesados" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <h3>Agro & Veículos Pesados</h3>
+                        <div class="rules-text">Crédito mín: R$ 100k | Ent. mín: R$ 15.000</div>
+                        
+                        <div class="input-group">
+                            <label>Valor do Bem: <span id="agroValText">R$ 300.000</span></label>
+                            <input type="range" min="100000" max="2000000" step="50000" value="300000" id="agroVal" oninput="calcularPesados()">
+                        </div>
+                        <div class="input-group">
+                            <label>Valor da Entrada: <span id="agroEntText">R$ 15.000</span></label>
+                            <input type="range" min="150000" max="500000" step="5000" value="15000" id="agroEnt" oninput="calcularPesados()">
+                        </div>
+                        <div class="input-group">
+                            <label>Prazo de Pagamento: <span id="agroPrazoText">100 meses</span></label>
+                            <input type="range" min="60" max="120" step="12" value="100" id="agroPrazo" oninput="calcularPesados()">
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <p>Parcela Mensal Corrigida</p>
+                        <strong id="agroTotal">R$ 3.619,50</strong>
+                    </div>
+                    <button class="btn-action" onclick="alert('Simulação de Pesados enviada!')">Solicitar Análise</button>
+                </div>
+            </div>
+
+            <div class="sim-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80" alt="Imóvel" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <h3>Crédito Imobiliário</h3>
+                        <div class="rules-text">Crédito mín: R$ 150k | Ent. mín: R$ 15.000</div>
+                        
+                        <div class="input-group">
+                            <label>Crédito Imóvel: <span id="imoValText">R$ 400.000</span></label>
+                            <input type="range" min="150000" max="5000000" step="50000" value="400000" id="imoVal" oninput="calcularImovel()">
+                        </div>
+                        <div class="input-group">
+                            <label>Valor da Entrada: <span id="imoEntText">R$ 15.000</span></label>
+                            <input type="range" min="15000" max="1000000" step="5000" value="15000" id="imoEnt" oninput="calcularImovel()">
+                        </div>
+                        <div class="input-group">
+                            <label>Prazo de Pagamento: <span id="imoPrazoText">180 meses</span></label>
+                            <input type="range" min="120" max="240" step="12" value="180" id="imoPrazo" oninput="calcularImovel()">
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <p>Parcela Mensal Corrigida</p>
+                        <strong id="imoTotal">R$ 2.691,66</strong>
+                    </div>
+                    <button class="btn-action" onclick="alert('Simulação Imobiliária enviada!')">Solicitar Análise</button>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -143,21 +193,78 @@
     </footer>
 
     <script>
-        function switchTab(type, button) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
-            button.classList.add('active-tab');
-            document.querySelectorAll('.sim-panel').forEach(panel => panel.classList.remove('active-panel'));
-            document.getElementById('panel-' + type).classList.add('active-panel');
+        function formatarMoeda(valor) {
+            return 'R$ ' + parseInt(valor).toLocaleString('pt-BR');
         }
-        function runCalc(type) {
-            const panel = document.getElementById('panel-' + type);
-            const val = panel.querySelectorAll('input')[0].value;
-            const prazo = panel.querySelectorAll('input')[1].value;
-            document.getElementById(type + 'ValText').innerText = 'R$ ' + parseInt(val).toLocaleString('pt-BR');
-            document.getElementById(type + 'PrazoText').innerText = prazo + ' meses';
-            let taxa = type === 'auto' ? 1.18 : type === 'agro' ? 1.15 : 1.12;
-            let total = (val * taxa) / prazo;
-            document.getElementById(type + 'Total').innerText = 'R$ ' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        function calcularAutomovel() {
+            let val = parseInt(document.getElementById('autoVal').value);
+            let ent = parseInt(document.getElementById('autoEnt').value);
+            let prazo = parseInt(document.getElementById('autoPrazo').value);
+
+            // Garante que a entrada não supere o valor do bem
+            if (ent >= val) { ent = val - 1000; document.getElementById('autoEnt').value = ent; }
+
+            document.getElementById('autoValText').innerText = formatarMoeda(val);
+            document.getElementById('autoEntText').innerText = formatarMoeda(ent);
+            document.getElementById('autoPrazoText').innerText = prazo + ' meses';
+
+            // Definição de taxas informada por você
+            let taxaJuros = 1.19; // 19% fixo até 50 mil
+            if (val >= 60000) {
+                taxaJuros = 1.23; // Média entre 21% e 24% para valores maiores
+            }
+
+            let saldoADebitar = val - ent;
+            let parcela = (saldoADebitar * taxaJuros) / prazo;
+
+            // Regra de parcela mínima de R$ 400
+            if (parcela < 400) { parcela = 400; }
+
+            document.getElementById('autoTotal').innerText = parcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function calcularPesados() {
+            let val = parseInt(document.getElementById('agroVal').value);
+            let ent = parseInt(document.getElementById('agroEnt').value);
+            let prazo = parseInt(document.getElementById('agroPrazo').value);
+
+            if (ent >= val) { ent = val - 5000; document.getElementById('agroEnt').value = ent; }
+
+            document.getElementById('agroValText').innerText = formatarMoeda(val);
+            document.getElementById('agroEntText').innerText = formatarMoeda(ent);
+            document.getElementById('agroPrazoText').innerText = prazo + ' meses';
+
+            let taxaJuros = 1.27; // Média de 26% a 28% para Pesados
+            let saldo = val - ent;
+            let parcela = (saldo * taxaJuros) / prazo;
+
+            document.getElementById('agroTotal').innerText = parcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function calcularImovel() {
+            let val = parseInt(document.getElementById('imoVal').value);
+            let ent = parseInt(document.getElementById('imoEnt').value);
+            let prazo = parseInt(document.getElementById('imoPrazo').value);
+
+            if (ent >= val) { ent = val - 15000; document.getElementById('imoEnt').value = ent; }
+
+            document.getElementById('imoValText').innerText = formatarMoeda(val);
+            document.getElementById('imoEntText').innerText = formatarMoeda(ent);
+            document.getElementById('imoPrazoText').innerText = prazo + ' meses';
+
+            let taxaJuros = 1.26; // Média de 25% a 27% para Imóveis
+            let saldo = val - ent;
+            let parcela = (saldo * taxaJuros) / prazo;
+
+            document.getElementById('imoTotal').innerText = parcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        // Roda ao carregar para atualizar os totais iniciais
+        window.onload = function() {
+            calcularAutomovel();
+            calcularPesados();
+            calcularImovel();
         }
     </script>
 </body>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliança Investimentos & Consórcios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #070b12;
+            --bg-card: #0d1527;
+            --primary: #1e40af;
+            --primary-light: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(7, 11, 18, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: var(--text-main);
+        }
+
+        .logo-placeholder span {
+            color: var(--primary-light);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-light);
+        }
+
+        .hero {
+            padding: 180px 5% 100px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(30, 64, 175, 0.15) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .catalog-sections {
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .catalog-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
+
+        .catalog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-light);
+        }
+
+        .catalog-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .catalog-card p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--text-main);
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        .simulator-section {
+            padding: 80px 5%;
+            background-color: rgba(13, 21, 39, 0.5);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .simulator-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .form-group input[type="range"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .value-display {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .result-box {
+            background-color: rgba(7, 11, 18, 0.6);
+            border: 1px dashed var(--primary-light);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .result-box p {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .result-box .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 5px;
+        }
+
+        footer {
+            padding: 40px 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-placeholder">ALIANÇA <span>INVESTIMENTOS</span></div>
+        <nav>
+            <a href="#linhas">Nossas Linhas</a>
+            <a href="#simulador">Simulador</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Crédito Inteligente para Grandes Conquistas</h1>
+        <p>Soluções estruturadas em consórcios e investimentos para a aquisição de veículos, pesados e imóveis sem comprometer sua liquidez.</p>
+        <a href="#simulador" class="btn">Simular Meu Crédito</a>
+    </section>
+
+    <section id="linhas" class="catalog-sections">
+        <div class="catalog-card">
+            <h3>Linha Automotiva</h3>
+            <p>Veículos de R$ 20.000 a R$ 100.000 homologados e prontos para faturamento.</p>
+            <span class="btn">Explorar</span>
+        </div>
+        <div class="catalog-card">
+            <h3>Agro & Pesados</h3>
+            <p>Tratores, colheitadeiras e frotas de caminhões com parcelas sazonais.</p>
+            <span class="btn">Explorar</span>
+        </div>
+        <div class="catalog-card">
+            <h3>Linha Imobiliária</h3>
+            <p>Cartas de crédito planejadas para aquisição de terrenos, casas e galpões.</p>
+            <span class="btn">Explorar</span>
+        </div>
+    </section>
+
+    <section id="simulador" class="simulator-section">
+        <h2 class="section-title">Simulador Prévio Aliança</h2>
+        <div class="simulator-container">
+            <div class="form-group">
+                <label>Valor do Ativo / Crédito</label>
+                <input type="range" id="creditRange" min="20000" max="150000" step="5000" value="60000">
+                <div class="value-display" id="creditValue">R$ 60.000</div>
+            </div>
+            <div class="form-group">
+                <label>Valor da Entrada</label>
+                <input type="range" id="inputRange" min="0" max="60000" step="2000" value="12000">
+                <div class="value-display" id="inputValue">R$ 12.000</div>
+            </div>
+            <div class="form-group">
+                <label>Prazo Desejado (Meses)</label>
+                <input type="range" id="monthsRange" min="36" max="120" step="12" value="60">
+                <div class="value-display" id="monthsValue">60 meses</div>
+            </div>
+
+            <div class="result-box">
+                <p>Parcela Estimada (Consórcio/Crédito)</p>
+                <div class="price" id="estimatedInstallment">R$ 980,00</div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" style="width: 100%;" id="whatsappBtn">Solicitar Análise Pró-Aprovada</button>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <p>&copy; 2026 Aliança Investimentos & Consórcios. Todos os direitos reservados.</p>
+        <p style="margin-top: 10px; font-size: 12px; color: #475569;">Goiânia - GO | Posicionamento Premium e Ativos Homologados</p>
+    </footer>
+
+    <script>
+        // Simulador interativo dinâmico simples
+        const creditRange = document.getElementById('creditRange');
+        const inputRange = document.getElementById('inputRange');
+        const monthsRange = document.getElementById('monthsRange');
+
+        const creditValue = document.getElementById('creditValue');
+        const inputValue = document.getElementById('inputValue');
+        const monthsValue = document.getElementById('monthsValue');
+        const estimatedInstallment = document.getElementById('estimatedInstallment');
+
+        function updateSimulation() {
+            let credit = parseInt(creditRange.value);
+            let input = parseInt(inputRange.value);
+            let months = parseInt(monthsRange.value);
+
+            // Garantir que a entrada não seja maior que o crédito
+            inputRange.max = credit;
+            if (input > credit) {
+                input = credit;
+                inputRange.value = input;
+            }
+
+            creditValue.innerText = 'R$ ' + credit.toLocaleString('pt-BR');
+            inputValue.innerText = 'R$ ' + input.toLocaleString('pt-BR');
+            monthsValue.innerText = months + ' meses';
+
+            // Regra simples de cálculo para simulação prévia (Taxa adm + fundo de reserva pulverizado)
+            let balanceToPay = credit - input;
+            if (balanceToPay <= 0) {
+                estimatedInstallment.innerText = 'R$ 0,00';
+                return;
+            }
+            
+            let totalWithFee = balanceToPay * 1.18; // 18% taxa total estimada distribuída
+            let installment = totalWithFee / months;
+
+            estimatedInstallment.innerText = 'R$ ' + installment.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        creditRange.addEventListener('input', updateSimulation);
+        inputRange.addEventListener('input', updateSimulation);
+        monthsRange.addEventListener('input', updateSimulation);
+        
+        updateSimulation();
+
+        document.getElementById('whatsappBtn').addEventListener('click', () => {
+            alert('Simulação estruturada! Direcionando para atendimento humano no WhatsApp da Aliança...');
+        });
+    </script>
+</body>
+</html>

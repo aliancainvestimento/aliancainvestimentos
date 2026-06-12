@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliança Investimentos & Consórcios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1d4ed8;
+            --dark-blue: #1e3a8a;
+            --light-blue: #eff6ff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #f8fafc; color: var(--text-dark); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        
+        .navbar { background: #ffffff; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; }
+        .brand { display: flex; flex-direction: column; }
+        .brand-name { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 3px; color: var(--dark-blue); }
+        .brand-sub { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-blue); font-weight: 600; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; }
+        
+        .hero-container { max-width: 1200px; margin: 50px auto; padding: 0 5%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+        .hero-left h4 { color: var(--primary-blue); text-transform: uppercase; font-size: 12px; letter-spacing: 2px; font-weight: 700; margin-bottom: 15px; font-family: 'Montserrat', sans-serif; }
+        .hero-left h1 { font-family: 'Montserrat', sans-serif; font-size: 42px; color: var(--dark-blue); line-height: 1.2; margin-bottom: 20px; font-weight: 700; }
+        .hero-left h1 span { color: var(--primary-blue); }
+        .hero-left .subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 30px; }
+        
+        .tabs-wrapper { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tab-btn { background: #ffffff; border: 1px solid #e2e8f0; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
+        .tab-btn:hover, .tab-btn.active-tab { border-color: var(--primary-blue); color: var(--primary-blue); background: var(--light-blue); }
+        
+        .sim-card { background: #ffffff; padding: 30px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; }
+        .sim-panel { display: none; }
+        .sim-panel.active-panel { display: block; }
+        .sim-card h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; color: var(--dark-blue); margin-bottom: 5px; }
+        .sim-card .sim-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+        
+        .range-group { margin-bottom: 20px; }
+        .range-group label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 5px; }
+        .range-group label span { color: var(--primary-blue); }
+        .range-group input { width: 100%; accent-color: var(--primary-blue); }
+        
+        .result-box { background: var(--light-blue); padding: 15px; border-radius: 12px; text-align: center; margin-top: 20px; border: 1px dashed rgba(59, 130, 246, 0.3); }
+        .result-box p { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+        .result-box strong { font-size: 28px; color: var(--dark-blue); display: block; font-family: 'Montserrat', sans-serif; }
+        .btn-submit { width: 100%; background: var(--primary-blue); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 600; text-transform: uppercase; font-size: 13px; cursor: pointer; margin-top: 15px; }
+        
+        .about-section { background: #ffffff; padding: 60px 8%; border-top: 1px solid #f1f5f9; text-align: center; }
+        .about-container { max-width: 800px; margin: 0 auto; }
+        .about-section h2 { font-family: 'Montserrat', sans-serif; color: var(--dark-blue); font-size: 28px; margin-bottom: 15px; }
+        .about-section p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+        footer { background: var(--dark-blue); color: #ffffff; text-align: center; padding: 30px 20px; font-size: 12px; opacity: 0.9; }
+        @media(max-width: 968px) { .hero-container { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
 
+    <nav class="navbar">
+        <div class="brand">
+            <span class="brand-name">ALIANÇA</span>
+            <span class="brand-sub">Investimentos & Consórcios</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#quem-somos">Quem somos</a></li>
+            <li><a href="#solucoes">Soluções</a></li>
+        </ul>
+    </nav>
+
+    <main class="hero-container" id="inicio">
+        <div class="hero-left">
+            <h4>Invista com confiança.</h4>
+            <h1>Soluções inteligentes para <span>seus objetivos.</span></h1>
+            <p class="subtitle">Na Aliança Investimentos & Consórcios, você encontra as melhores opções em investimentos, consórcios e crédito para conquistar seus planos com segurança e tranquilidade.</p>
+            
+            <div class="tabs-wrapper" id="solucoes">
+                <button class="tab-btn active-tab" onclick="switchTab('auto', this)"><i class="fa-solid fa-car"></i> Automóveis</button>
+                <button class="tab-btn" onclick="switchTab('agro', this)"><i class="fa-solid fa-tractor"></i> Agro & Pesados</button>
+                <button class="tab-btn" onclick="switchTab('imo', this)"><i class="fa-solid fa-house"></i> Imobiliário</button>
+            </div>
+        </div>
+
+        <div class="sim-card">
+            <div id="panel-auto" class="sim-panel active-panel">
+                <h3>Simule agora mesmo</h3>
+                <p class="sim-desc">Faça uma simulação gratuita e descubra a melhor opção em Crédito Automotivo.</p>
+                <div class="range-group">
+                    <label>Valor do Veículo: <span id="autoValText">R$ 60.000</span></label>
+                    <input type="range" min="20000" max="200000" step="5000" value="60000" oninput="runCalc('auto')">
+                </div>
+                <div class="range-group">
+                    <label>Prazo: <span id="autoPrazoText">60 meses</span></label>
+                    <input type="range" min="36" max="100" step="12" value="60" oninput="runCalc('auto')">
+                </div>
+                <div class="result-box"><p>Parcela Mensal Estimada</p><strong id="autoTotal">R$ 1.180,00</strong></div>
+            </div>
+
+            <div id="panel-agro" class="sim-panel">
+                <h3>Simule Linha Agro & Pesados</h3>
+                <p class="sim-desc">Planeje a compra de maquinários e frotas com taxas estruturadas.</p>
+                <div class="range-group">
+                    <label>Valor do Investimento: <span id="agroValText">R$ 300.000</span></label>
+                    <input type="range" min="150000" max="2000000" step="50000" value="300000" oninput="runCalc('agro')">
+                </div>
+                <div class="range-group">
+                    <label>Prazo: <span id="agroPrazoText">100 meses</span></label>
+                    <input type="range" min="60" max="120" step="12" value="100" oninput="runCalc('agro')">
+                </div>
+                <div class="result-box"><p>Parcela Mensal Estimada</p><strong id="agroTotal">R$ 3.450,00</strong></div>
+            </div>
+
+            <div id="panel-imo" class="sim-panel">
+                <h3>Simule Crédito Imobiliário</h3>
+                <p class="sim-desc">Casas, terrenos ou galpões comerciais planejados.</p>
+                <div class="range-group">
+                    <label>Valor do Imóvel: <span id="imoValText">R$ 400.000</span></label>
+                    <input type="range" min="200000" max="5000000" step="50000" value="400000" oninput="runCalc('imo')">
+                </div>
+                <div class="range-group">
+                    <label>Prazo: <span id="imoPrazoText">180 meses</span></label>
+                    <input type="range" min="120" max="240" step="12" value="180" oninput="runCalc('imo')">
+                </div>
+                <div class="result-box"><p>Parcela Mensal Estimada</p><strong id="imoTotal">R$ 2.488,00</strong></div>
+            </div>
+            <button class="btn-submit" onclick="alert('Simulação enviada! Entraremos em contato.')">Simular Agora</button>
+        </div>
+    </main>
+
+    <section class="about-section" id="quem-somos">
+        <div class="about-container">
+            <h2>Quem Somos</h2>
+            <p>Somos uma financeira totalmente completa, que está há mais de 4 anos no mercado realizando sonhos de quem deseja seu primeiro bem. Pautados na transparência, solidez e compromisso com o futuro, conectamos nossos clientes às melhores linhas de crédito, consórcios estruturados e investimentos de forma personalizada, garantindo máxima excelência na ampliação do seu patrimônio.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Aliança Investimentos & Consórcios | Goiânia - GO</p>
+    </footer>
+
+    <script>
+        function switchTab(type, button) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+            button.classList.add('active-tab');
+            document.querySelectorAll('.sim-panel').forEach(panel => panel.classList.remove('active-panel'));
+            document.getElementById('panel-' + type).classList.add('active-panel');
+        }
+        function runCalc(type) {
+            const panel = document.getElementById('panel-' + type);
+            const val = panel.querySelectorAll('input')[0].value;
+            const prazo = panel.querySelectorAll('input')[1].value;
+            document.getElementById(type + 'ValText').innerText = 'R$ ' + parseInt(val).toLocaleString('pt-BR');
+            document.getElementById(type + 'PrazoText').innerText = prazo + ' meses';
+            let taxa = type === 'auto' ? 1.18 : type === 'agro' ? 1.15 : 1.12;
+            let total = (val * taxa) / prazo;
+            document.getElementById(type + 'Total').innerText = 'R$ ' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+    </script>
+</body>
+</html>

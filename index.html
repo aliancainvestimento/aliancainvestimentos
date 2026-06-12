@@ -4,252 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aliança Investimentos & Consórcios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg-light: #f1f5f9; /* Fundo cinza claro/prata */
-            --primary-blue: #1e40af; /* Azul corporativo */
-            --text-dark: #0f172a; /* Texto escuro para leitura */
-            --card-bg: #ffffff; /* Painéis brancos */
+            --primary-blue: #1d4ed8;     /* Azul Royal da Logo */
+            --dark-blue: #1e3a8a;        /* Azul Escuro Corporativo */
+            --light-blue: #eff6ff;       /* Fundo Azul Bem Claro */
+            --accent-blue: #3b82f6;      /* Azul de Destaque */
+            --text-dark: #0f172a;        /* Cinza Escuro Quase Preto */
+            --text-muted: #475569;       /* Cinza para textos secundários */
+            --card-bg: #ffffff;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: var(--bg-light);
+            background-color: #f8fafc;
             color: var(--text-dark);
             font-family: 'Inter', sans-serif;
-            height: 100vh;
-            overflow: hidden;
+            line-height: 1.6;
         }
 
-        /* NAVEGAÇÃO POR PÁGINAS */
-        .page {
-            display: none;
-            height: 100vh;
-            width: 100%;
-            padding: 40px 20px;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .active { display: flex; animation: fadeIn 0.3s; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* HEADER */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 30px 20px;
-            z-index: 100;
-            text-align: center;
-        }
-
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 32px;
-            letter-spacing: 6px;
-            color: var(--primary-blue);
-            font-weight: 700;
-        }
-
-        .logo-sub {
-            font-size: 11px;
-            letter-spacing: 3px;
-            color: #64748b;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        /* MENU DE BOTÕES (PÁGINA INICIAL) */
-        .menu-nav {
+        /* NAVBAR PRINCIPAL */
+        .navbar {
+            background: #ffffff;
+            padding: 20px 8%;
             display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .nav-btn {
-            background: var(--primary-blue);
-            border: none;
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 13px;
+        .brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--dark-blue);
+        }
+
+        .brand-sub {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-blue);
             font-weight: 600;
-            text-transform: uppercase;
-            transition: 0.2s;
+            margin-top: -2px;
         }
 
-        .nav-btn:hover {
-            background: #1d4ed8;
-        }
-
-        .btn-back {
-            background: #64748b;
-            margin-top: 15px;
-        }
-
-        /* PAINÉIS DAS PÁGINAS */
-        .content-box {
-            max-width: 500px;
-            width: 100%;
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            margin-top: 60px;
-        }
-
-        h2 { font-family: 'Montserrat', sans-serif; margin-bottom: 10px; color: var(--primary-blue); text-transform: uppercase;}
-
-        /* SIMULADOR */
-        .simulator {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: left;
-            border: 1px solid #e2e8f0;
-        }
-
-        .sim-row { margin-bottom: 15px; }
-        .sim-row label { display: block; font-size: 11px; color: #64748b; margin-bottom: 5px; font-weight: 600;}
-        .sim-row input { width: 100%; accent-color: var(--primary-blue); cursor: pointer; }
-
-        .result { border-top: 1px solid #e2e8f0; padding-top: 15px; text-align: center; }
-        .result span { font-size: 12px; color: #64748b; }
-        .result strong { font-size: 30px; display: block; color: var(--text-dark); }
-
-        .btn-action {
-            background: #25d366;
-            color: #fff;
-            border: none;
-            width: 100%;
-            padding: 14px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 13px;
-            cursor: pointer;
-            margin-top: 15px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="header">
-        <div class="logo-text">ALIANÇA</div>
-        <div class="logo-sub">Investimentos & Consórcios</div>
-    </div>
-
-    <div id="home" class="page active">
-        <p style="color: #64748b; font-weight: 500; margin-top: 40px;">Selecione uma linha abaixo para simular:</p>
-        <div class="menu-nav">
-            <button class="nav-btn" onclick="openPage('auto')">Automóveis</button>
-            <button class="nav-btn" onclick="openPage('agro')">Agro & Pesados</button>
-            <button class="nav-btn" onclick="openPage('imo')">Imobiliário</button>
-        </div>
-    </div>
-
-    <div id="auto" class="page">
-        <div class="content-box">
-            <h2>Linha Automotiva</h2>
-            <p style="color: #64748b; font-size: 14px;">Créditos de R$ 20k a R$ 200k</p>
-            <div class="simulator">
-                <div class="sim-row">
-                    <label>Valor do Veículo: <span id="autoValT">R$ 60.000</span></label>
-                    <input type="range" min="20000" max="200000" step="5000" value="60000" oninput="calc('auto')">
-                </div>
-                <div class="sim-row">
-                    <label>Prazo: <span id="autoPrazT">60 meses</span></label>
-                    <input type="range" min="36" max="100" step="12" value="60" oninput="calc('auto')">
-                </div>
-                <div class="result">
-                    <span>Parcela Mensal Estimada</span>
-                    <strong id="autoRes">R$ 1.180,00</strong>
-                </div>
-            </div>
-            <button class="nav-btn btn-action" onclick="alert('Simulação salva com sucesso!')">Enviar Proposta</button>
-            <button class="nav-btn btn-back" onclick="openPage('home')">Voltar</button>
-        </div>
-    </div>
-
-    <div id="agro" class="page">
-        <div class="content-box">
-            <h2>Agro & Pesados</h2>
-            <p style="color: #64748b; font-size: 14px;">Créditos de R$ 150k a R$ 2M</p>
-            <div class="simulator">
-                <div class="sim-row">
-                    <label>Valor do Bem: <span id="agroValT">R$ 300.000</span></label>
-                    <input type="range" min="150000" max="2000000" step="50000" value="300000" oninput="calc('agro')">
-                </div>
-                <div class="sim-row">
-                    <label>Prazo: <span id="agroPrazT">100 meses</span></label>
-                    <input type="range" min="60" max="120" step="12" value="100" oninput="calc('agro')">
-                </div>
-                <div class="result">
-                    <span>Parcela Mensal Estimada</span>
-                    <strong id="agroRes">R$ 3.450,00</strong>
-                </div>
-            </div>
-            <button class="nav-btn btn-action" onclick="alert('Simulação salva com sucesso!')">Enviar Proposta</button>
-            <button class="nav-btn btn-back" onclick="openPage('home')">Voltar</button>
-        </div>
-    </div>
-
-    <div id="imo" class="page">
-        <div class="content-box">
-            <h2>Linha Imobiliária</h2>
-            <p style="color: #64748b; font-size: 14px;">Créditos de R$ 200k a R$ 5M</p>
-            <div class="simulator">
-                <div class="sim-row">
-                    <label>Crédito Desejado: <span id="imoValT">R$ 400.000</span></label>
-                    <input type="range" min="200000" max="5000000" step="50000" value="400000" oninput="calc('imo')">
-                </div>
-                <div class="sim-row">
-                    <label>Prazo: <span id="imoPrazT">180 meses</span></label>
-                    <input type="range" min="120" max="240" step="12" value="180" oninput="calc('imo')">
-                </div>
-                <div class="result">
-                    <span>Parcela Mensal Estimada</span>
-                    <strong id="imoRes">R$ 2.488,00</strong>
-                </div>
-            </div>
-            <button class="nav-btn btn-action" onclick="alert('Simulação salva com sucesso!')">Enviar Proposta</button>
-            <button class="nav-btn btn-back" onclick="openPage('home')">Voltar</button>
-        </div>
-    </div>
-
-    <script>
-        function openPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-        }
-
-        function calc(type) {
-            const page = document.getElementById(type);
-            const val = page.querySelectorAll('input')[0].value;
-            const praz = page.querySelectorAll('input')[1].value;
-
-            document.getElementById(type + 'ValT').innerText = 'R$ ' + parseInt(val).toLocaleString('pt-BR');
-            document.getElementById(type + 'PrazT').innerText = praz + ' meses';
-
-            let taxa = type === 'auto' ? 1.18 : type === 'agro' ? 1.15 : 1.12;
-            let parcela = (val * taxa) / praz;
-            
-            document.getElementById(type + 'Res').innerText = 'R$ ' + parcela.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
-    </script>
-</body>
-</html>
+        .nav-links {
+            display: flex;
+            gap: 25px;

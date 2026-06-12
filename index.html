@@ -4,85 +4,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aliança Investimentos & Consórcios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --primary-blue: #1d4ed8;
-            --dark-blue: #1e3a8a;
-            --light-blue: #eff6ff;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
+            --logo-dark-blue: #030a1c;   /* Fundo idêntico ao da foto da logo */
+            --primary-blue: #1d4ed8;     /* Azul Royal da Logo */
+            --accent-blue: #3b82f6;      /* Azul vivo de destaque */
+            --silver: #cbd5e1;           /* Prata detalhes */
+            --text-dark: #0f172a;        
+            --text-muted: #64748b;       
         }
+        
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { background-color: #f8fafc; color: var(--text-dark); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        body { background-color: #ffffff; color: var(--text-dark); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         
-        /* NAVBAR */
-        .navbar { background: #ffffff; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; }
-        .brand { display: flex; flex-direction: column; }
-        .brand-name { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 3px; color: var(--dark-blue); }
-        .brand-sub { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-blue); font-weight: 600; }
+        /* NAVBAR PREMIUM CLEAN */
+        .navbar { 
+            background: #ffffff; 
+            padding: 15px 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 4px 30px rgba(0,0,0,0.02); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 1px solid #f1f5f9;
+        }
         
-        /* HERO / HOME / LOGO CAPRICHADA */
-        .hero { text-align: center; padding: 80px 20px; background: radial-gradient(circle at center, #ffffff 0%, #eff6ff 100%); border-bottom: 1px solid #e2e8f0; }
-        .logo-box { margin-bottom: 25px; }
-        .logo-icon { font-size: 60px; color: var(--primary-blue); margin-bottom: 10px; filter: drop-shadow(0 4px 6px rgba(29, 78, 216, 0.2)); }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 48px; color: var(--dark-blue); font-weight: 700; letter-spacing: 4px; }
-        .hero h1 span { color: var(--primary-blue); }
-        .hero p { font-size: 16px; color: var(--text-muted); max-width: 600px; margin: 15px auto 30px; }
-        .btn-start { background: var(--primary-blue); color: white; border: none; padding: 16px 35px; border-radius: 8px; font-weight: 600; text-transform: uppercase; font-size: 14px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3); }
-        .btn-start:hover { background: var(--dark-blue); transform: translateY(-2px); }
+        /* RECONSTRUÇÃO DA LOGO VIA CSS (INSPIRADO NA FOTO) */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-3d {
+            position: relative;
+            width: 45px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 34px solid var(--primary-blue);
+        }
+        .logo-triangle::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: -12px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 20px solid #ffffff;
+        }
+        .logo-overlay {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--accent-blue);
+            border-radius: 50%;
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-main-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #0c1e43;
+            line-height: 1;
+        }
+        .logo-sub-text {
+            font-size: 8.5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 3px;
+        }
 
-        /* SEÇÃO QUEM SOMOS */
-        .about-section { background: #ffffff; padding: 80px 8%; text-align: center; border-bottom: 1px solid #f1f5f9; }
-        .about-container { max-width: 800px; margin: 0 auto; }
-        .about-section h2 { font-family: 'Montserrat', sans-serif; color: var(--dark-blue); font-size: 32px; margin-bottom: 20px; position: relative; }
-        .about-section h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary-blue); margin: 10px auto 0; border-radius: 2px; }
-        .about-section p { color: var(--text-muted); font-size: 16px; line-height: 1.8; }
+        /* HERO SECTION - FUNDO EXECUTIVO ESCURO DA FOTO DA LOGO */
+        .hero { 
+            text-align: center; 
+            padding: 100px 20px 120px; 
+            background: radial-gradient(circle at center, #0a1931 0%, #030a1c 100%); 
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, rgba(29, 78, 216, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-logo-box {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 35px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+        }
+        .hero-logo-box .logo-main-text { color: #ffffff; font-size: 32px; letter-spacing: 7px; }
+        .hero-logo-box .logo-sub-text { color: #94a3b8; letter-spacing: 3.5px; font-size: 10px; }
+        
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 44px; font-weight: 700; letter-spacing: 1px; max-width: 800px; margin: 0 auto 20px; line-height: 1.3; }
+        .hero h1 span { color: var(--accent-blue); text-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+        .hero p { font-size: 16px; color: #94a3b8; max-width: 600px; margin: 0 auto 40px; font-weight: 300; }
+        
+        .btn-start { 
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1e40af 100%); 
+            color: white; border: none; padding: 18px 40px; border-radius: 50px; 
+            font-weight: 600; text-transform: uppercase; font-size: 13px; letter-spacing: 1px;
+            cursor: pointer; transition: 0.3s ease; box-shadow: 0 10px 25px rgba(29, 78, 216, 0.4); 
+        }
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(29, 78, 216, 0.6); }
 
-        /* SEÇÃO SIMULADOR COM CARDS DE IMAGEM */
-        .sim-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
-        .sim-section-title { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 32px; color: var(--dark-blue); margin-bottom: 40px; }
-        
-        .grid-simulador { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .sim-card { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; display: flex; flex-direction: column; }
-        
-        .card-img { height: 200px; width: 100%; object-fit: cover; background-color: #cbd5e1; }
-        .card-body { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        
-        .card-body h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; color: var(--dark-blue); margin-bottom: 10px; }
-        .card-body .rules-text { font-size: 12px; color: var(--primary-blue); font-weight: 600; margin-bottom: 20px; background: var(--light-blue); padding: 8px 12px; border-radius: 6px; }
-        
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
-        .input-group label span { color: var(--dark-blue); }
-        .input-group input { width: 100%; accent-color: var(--primary-blue); }
-        
-        .result-box { background: var(--light-blue); padding: 18px; border-radius: 12px; text-align: center; margin-top: auto; border: 1px dashed rgba(59, 130, 246, 0.3); }
-        .result-box p { font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 500; }
-        .result-box strong { font-size: 26px; color: var(--dark-blue); display: block; font-family: 'Montserrat', sans-serif; margin-top: 2px; }
-        
-        .btn-action { width: 100%; background: var(--primary-blue); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 600; text-transform: uppercase; font-size: 13px; cursor: pointer; margin-top: 20px; transition: 0.3s; }
-        .btn-action:hover { background: var(--dark-blue); }
+        /* SEÇÃO QUEM SOMOS - ESTRUTURA CLEAN WHITE */
+        .about-section { background: #ffffff; padding: 100px 8%; text-align: center; }
+        .about-container { max-width: 850px; margin: 0 auto; }
+        .about-section h2 { font-family: 'Montserrat', sans-serif; color: #0c1e43; font-size: 36px; font-weight: 700; margin-bottom: 25px; }
+        .about-section h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--accent-blue); margin: 12px auto 0; border-radius: 2px; }
+        .about-section p { color: var(--text-muted); font-size: 16px; line-height: 1.9; font-weight: 400; }
 
-        footer { background: var(--dark-blue); color: #ffffff; text-align: center; padding: 40px 20px; font-size: 13px; }
-        footer p { opacity: 0.7; }
+        /* SEÇÃO SIMULADOR DE CRÉDITO */
+        .sim-section { padding: 100px 8%; background-color: #f8fafc; border-top: 1px solid #e2e8f0; }
+        .sim-section-title { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 36px; color: #0c1e43; margin-bottom: 5px; font-weight: 700; }
+        .sim-section-subtitle { text-align: center; color: var(--text-muted); font-size: 15px; margin-bottom: 60px; }
+        
+        .grid-simulador { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 35px; max-width: 1300px; margin: 0 auto; }
+        .sim-card { background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(15,23,42,0.03); border: 1px solid #e2e8f0; display: flex; flex-direction: column; transition: 0.3s; }
+        .sim-card:hover { transform: translateY(-5px); box-shadow: 0 30px 60px rgba(15,23,42,0.06); }
+        
+        /* IMAGENS CORRIGIDAS DE ALTA RESOLUÇÃO */
+        .card-img { height: 230px; width: 100%; object-fit: cover; }
+        .card-body { padding: 35px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .card-body h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; color: #0c1e43; margin-bottom: 8px; font-weight: 700; }
+        .card-body .rules-text { font-size: 11.5px; color: var(--primary-blue); font-weight: 600; margin-bottom: 25px; background: var(--light-blue); padding: 8px 14px; border-radius: 8px; display: inline-block; }
+        
+        .input-group { margin-bottom: 22px; }
+        .input-group label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 8px; }
+        .input-group label span { color: var(--primary-blue); font-size: 14px; font-weight: 700; }
+        .input-group input { width: 100%; accent-color: var(--primary-blue); height: 6px; border-radius: 5px; cursor: pointer; }
+        
+        .result-box { background: linear-gradient(135deg, #f0f5ff 0%, #e0ecff 100%); padding: 22px; border-radius: 16px; text-align: center; margin-top: 15px; border: 1px solid rgba(59,130,246,0.1); }
+        .result-box p { font-size: 11px; color: #475569; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .result-box strong { font-size: 30px; color: #0c1e43; display: block; font-family: 'Montserrat', sans-serif; margin-top: 4px; font-weight: 700; }
+        
+        .btn-action { width: 100%; background: #0c1e43; color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 600; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; cursor: pointer; margin-top: 25px; transition: 0.3s; }
+        .btn-action:hover { background: var(--primary-blue); }
+
+        footer { background: #030a1c; color: #64748b; text-align: center; padding: 40px 20px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer p { opacity: 0.8; }
+        
+        @media(max-width: 768px) { .hero h1 { font-size: 32px; } .grid-simulador { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="brand">
-            <span class="brand-name">ALIANÇA</span>
-            <span class="brand-sub">Investimentos & Consórcios</span>
+        <div class="logo-container">
+            <div class="logo-3d">
+                <div class="logo-triangle"></div>
+                <div class="logo-overlay"></div>
+            </div>
+            <div class="logo-text">
+                <span class="logo-main-text">ALIANÇA</span>
+                <span class="logo-subtext" style="font-size:8px; font-weight:700; color:#64748b; letter-spacing:1px;">INVESTIMENTOS & CONSÓRCIOS</span>
+            </div>
         </div>
     </nav>
 
     <section class="hero">
-        <div class="logo-box">
-            <i class="fa-solid fa-layer-group logo-icon"></i>
-            <div class="brand-name" style="font-size: 36px; letter-spacing: 6px;">ALIANÇA</div>
-            <div class="brand-sub" style="font-size: 12px; letter-spacing: 3px;">Investimentos & Consórcios</div>
+        <div class="hero-logo-box">
+            <div class="logo-3d" style="transform: scale(1.3); margin-bottom: 15px;">
+                <div class="logo-triangle"></div>
+                <div class="logo-overlay"></div>
+            </div>
+            <span class="logo-main-text">ALIANÇA</span>
+            <span class="logo-sub-text">Investimentos & Consórcios</span>
         </div>
         <h1>Soluções inteligentes para <span>seus objetivos.</span></h1>
         <p>Abaixo você pode conhecer nossa história e realizar simulações financeiras completas com taxas customizadas em tempo real.</p>
@@ -97,91 +216,92 @@
     </section>
 
     <section class="sim-section" id="simulador">
-        <h2 class="sim-section-title">Escolha a sua linha de crédito</h2>
+        <h2 class="sim-section-title">Plataforma de Simulação Dinâmica</h2>
+        <p class="sim-section-subtitle">Valores calculados em tempo real com base nas diretrizes oficiais da instituição</p>
         
         <div class="grid-simulador">
             
             <div class="sim-card">
-                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600&auto=format&fit=crop&q=80" alt="Automóvel" class="card-img">
+                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&auto=format&fit=crop&q=80" alt="Automóvel Premium" class="card-img">
                 <div class="card-body">
                     <div>
-                        <h3>Linha Automotiva</h3>
-                        <div class="rules-text">Crédito mín: R$ 20k | Ent. mín: R$ 3.500</div>
+                        <h3>Automóveis</h3>
+                        <div class="rules-text">Mínimo: R$ 20k | Entrada Mín: R$ 3.500 | Parcela Mín: R$ 400</div>
                         
                         <div class="input-group">
                             <label>Valor do Veículo: <span id="autoValText">R$ 60.000</span></label>
-                            <input type="range" min="20000" max="200000" step="5000" value="60000" id="autoVal" oninput="calcularAutomovel()">
+                            <input type="range" min="20000" max="200000" step="5000" value="60000" id="autoVal" oninput="calcAuto()">
                         </div>
                         <div class="input-group">
                             <label>Valor da Entrada: <span id="autoEntText">R$ 3.500</span></label>
-                            <input type="range" min="3500" max="100000" step="500" value="3500" id="autoEnt" oninput="calcularAutomovel()">
+                            <input type="range" min="3500" max="100000" step="500" value="3500" id="autoEnt" oninput="calcAuto()">
                         </div>
                         <div class="input-group">
-                            <label>Prazo de Pagamento: <span id="autoPrazoText">60 meses</span></label>
-                            <input type="range" min="36" max="100" step="12" value="60" id="autoPrazo" oninput="calcularAutomovel()">
+                            <label>Prazo desejado: <span id="autoPrazoText">60 meses</span></label>
+                            <input type="range" min="36" max="100" step="12" value="60" id="autoPrazo" oninput="calcAuto()">
                         </div>
                     </div>
                     <div class="result-box">
-                        <p>Parcela Mensal Corrigida</p>
-                        <strong id="autoTotal">R$ 1.258,33</strong>
+                        <p>Parcela Mensal Estimada</p>
+                        <strong id="autoTotal">R$ 0,00</strong>
                     </div>
-                    <button class="btn-action" onclick="alert('Simulação Automotiva enviada!')">Solicitar Análise</button>
+                    <button class="btn-action" onclick="alert('Simulação enviada para análise de crédito de Automóvel!')">Iniciar Contratação</button>
                 </div>
             </div>
 
             <div class="sim-card">
-                <img src="https://images.unsplash.com/photo-1594142176465-38b4da021008?w=600&auto=format&fit=crop&q=80" alt="Pesados" class="card-img">
+                <img src="https://images.unsplash.com/photo-1530268578403-bf6e898039cc?w=600&auto=format&fit=crop&q=80" alt="Maquinário Agro Pesados" class="card-img">
                 <div class="card-body">
                     <div>
-                        <h3>Agro & Veículos Pesados</h3>
-                        <div class="rules-text">Crédito mín: R$ 100k | Ent. mín: R$ 15.000</div>
+                        <h3>Agro & Pesados</h3>
+                        <div class="rules-text">Mínimo: R$ 100k | Entrada Mín: R$ 15.000</div>
                         
                         <div class="input-group">
-                            <label>Valor do Bem: <span id="agroValText">R$ 300.000</span></label>
-                            <input type="range" min="100000" max="2000000" step="50000" value="300000" id="agroVal" oninput="calcularPesados()">
+                            <label>Valor do Crédito: <span id="agroValText">R$ 300.000</span></label>
+                            <input type="range" min="100000" max="2000000" step="50000" value="300000" id="agroVal" oninput="calcPesados()">
                         </div>
                         <div class="input-group">
                             <label>Valor da Entrada: <span id="agroEntText">R$ 15.000</span></label>
-                            <input type="range" min="150000" max="500000" step="5000" value="15000" id="agroEnt" oninput="calcularPesados()">
+                            <input type="range" min="15000" max="500000" step="5000" value="15000" id="agroEnt" oninput="calcPesados()">
                         </div>
                         <div class="input-group">
-                            <label>Prazo de Pagamento: <span id="agroPrazoText">100 meses</span></label>
-                            <input type="range" min="60" max="120" step="12" value="100" id="agroPrazo" oninput="calcularPesados()">
+                            <label>Prazo desejado: <span id="agroPrazoText">100 meses</span></label>
+                            <input type="range" min="60" max="120" step="12" value="100" id="agroPrazo" oninput="calcPesados()">
                         </div>
                     </div>
                     <div class="result-box">
-                        <p>Parcela Mensal Corrigida</p>
-                        <strong id="agroTotal">R$ 3.619,50</strong>
+                        <p>Parcela Mensal Estimada</p>
+                        <strong id="agroTotal">R$ 0,00</strong>
                     </div>
-                    <button class="btn-action" onclick="alert('Simulação de Pesados enviada!')">Solicitar Análise</button>
+                    <button class="btn-action" onclick="alert('Simulação enviada para análise de crédito de Pesados!')">Iniciar Contratação</button>
                 </div>
             </div>
 
             <div class="sim-card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80" alt="Imóvel" class="card-img">
+                <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&auto=format&fit=crop&q=80" alt="Imóvel Alto Padrão" class="card-img">
                 <div class="card-body">
                     <div>
-                        <h3>Crédito Imobiliário</h3>
-                        <div class="rules-text">Crédito mín: R$ 150k | Ent. mín: R$ 15.000</div>
+                        <h3>Imobiliário</h3>
+                        <div class="rules-text">Mínimo: R$ 150k | Entrada Mín: R$ 15.000</div>
                         
                         <div class="input-group">
                             <label>Crédito Imóvel: <span id="imoValText">R$ 400.000</span></label>
-                            <input type="range" min="150000" max="5000000" step="50000" value="400000" id="imoVal" oninput="calcularImovel()">
+                            <input type="range" min="150000" max="5000000" step="50000" value="400000" id="imoVal" oninput="calcImo()">
                         </div>
                         <div class="input-group">
                             <label>Valor da Entrada: <span id="imoEntText">R$ 15.000</span></label>
-                            <input type="range" min="15000" max="1000000" step="5000" value="15000" id="imoEnt" oninput="calcularImovel()">
+                            <input type="range" min="15000" max="1000000" step="5000" value="15000" id="imoEnt" oninput="calcImo()">
                         </div>
                         <div class="input-group">
-                            <label>Prazo de Pagamento: <span id="imoPrazoText">180 meses</span></label>
-                            <input type="range" min="120" max="240" step="12" value="180" id="imoPrazo" oninput="calcularImovel()">
+                            <label>Prazo desejado: <span id="imoPrazoText">180 meses</span></label>
+                            <input type="range" min="120" max="240" step="12" value="180" id="imoPrazo" oninput="calcImo()">
                         </div>
                     </div>
                     <div class="result-box">
-                        <p>Parcela Mensal Corrigida</p>
-                        <strong id="imoTotal">R$ 2.691,66</strong>
+                        <p>Parcela Mensal Estimada</p>
+                        <strong id="imoTotal">R$ 0,00</strong>
                     </div>
-                    <button class="btn-action" onclick="alert('Simulação Imobiliária enviada!')">Solicitar Análise</button>
+                    <button class="btn-action" onclick="alert('Simulação enviada para análise de crédito Imobiliário!')">Iniciar Contratação</button>
                 </div>
             </div>
 
@@ -193,79 +313,67 @@
     </footer>
 
     <script>
-        function formatarMoeda(valor) {
-            return 'R$ ' + parseInt(valor).toLocaleString('pt-BR');
-        }
+        function format(v) { return 'R$ ' + parseInt(v).toLocaleString('pt-BR'); }
 
-        function calcularAutomovel() {
+        function calcAuto() {
             let val = parseInt(document.getElementById('autoVal').value);
             let ent = parseInt(document.getElementById('autoEnt').value);
             let prazo = parseInt(document.getElementById('autoPrazo').value);
 
-            // Garante que a entrada não supere o valor do bem
-            if (ent >= val) { ent = val - 1000; document.getElementById('autoEnt').value = ent; }
+            if(ent >= val) { ent = val - 1000; document.getElementById('autoEnt').value = ent; }
 
-            document.getElementById('autoValText').innerText = formatarMoeda(val);
-            document.getElementById('autoEntText').innerText = formatarMoeda(ent);
+            document.getElementById('autoValText').innerText = format(val);
+            document.getElementById('autoEntText').innerText = format(ent);
             document.getElementById('autoPrazoText').innerText = prazo + ' meses';
 
-            // Definição de taxas informada por você
-            let taxaJuros = 1.19; // 19% fixo até 50 mil
-            if (val >= 60000) {
-                taxaJuros = 1.23; // Média entre 21% e 24% para valores maiores
-            }
+            // Suas regras de juros exatas
+            let juros = 1.19; // Bens até 50 mil = 19%
+            if (val >= 60000) { juros = 1.225; } // Entre 60k e 200k varia de 21% a 24% (Média 22.5%)
 
-            let saldoADebitar = val - ent;
-            let parcela = (saldoADebitar * taxaJuros) / prazo;
+            let liquido = val - ent;
+            let parc = (liquido * juros) / prazo;
+            if (parc < 400) parc = 400; // Parcela mínima configurada
 
-            // Regra de parcela mínima de R$ 400
-            if (parcela < 400) { parcela = 400; }
-
-            document.getElementById('autoTotal').innerText = parcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('autoTotal').innerText = parc.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         }
 
-        function calcularPesados() {
+        function calcPesados() {
             let val = parseInt(document.getElementById('agroVal').value);
             let ent = parseInt(document.getElementById('agroEnt').value);
             let prazo = parseInt(document.getElementById('agroPrazo').value);
 
-            if (ent >= val) { ent = val - 5000; document.getElementById('agroEnt').value = ent; }
+            if(ent >= val) { ent = val - 5000; document.getElementById('agroEnt').value = ent; }
 
-            document.getElementById('agroValText').innerText = formatarMoeda(val);
-            document.getElementById('agroEntText').innerText = formatarMoeda(ent);
+            document.getElementById('agroValText').innerText = format(val);
+            document.getElementById('agroEntText').innerText = format(ent);
             document.getElementById('agroPrazoText').innerText = prazo + ' meses';
 
-            let taxaJuros = 1.27; // Média de 26% a 28% para Pesados
-            let saldo = val - ent;
-            let parcela = (saldo * taxaJuros) / prazo;
+            let juros = 1.27; // Entre 26% e 28% para pesados (Média 27%)
+            let liquido = val - ent;
+            let parc = (liquido * juros) / prazo;
 
-            document.getElementById('agroTotal').innerText = parcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('agroTotal').innerText = parc.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         }
 
-        function calcularImovel() {
+        function calcImo() {
             let val = parseInt(document.getElementById('imoVal').value);
             let ent = parseInt(document.getElementById('imoEnt').value);
             let prazo = parseInt(document.getElementById('imoPrazo').value);
 
-            if (ent >= val) { ent = val - 15000; document.getElementById('imoEnt').value = ent; }
+            if(ent >= val) { ent = val - 10000; document.getElementById('imoEnt').value = ent; }
 
-            document.getElementById('imoValText').innerText = formatarMoeda(val);
-            document.getElementById('imoEntText').innerText = formatarMoeda(ent);
+            document.getElementById('imoValText').innerText = format(val);
+            document.getElementById('imoEntText').innerText = format(ent);
             document.getElementById('imoPrazoText').innerText = prazo + ' meses';
 
-            let taxaJuros = 1.26; // Média de 25% a 27% para Imóveis
-            let saldo = val - ent;
-            let parcela = (saldo * taxaJuros) / prazo;
+            let juros = 1.26; // Entre 25% e 27% para imóveis (Média 26%)
+            let liquido = val - ent;
+            let parc = (liquido * juros) / prazo;
 
-            document.getElementById('imoTotal').innerText = parcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('imoTotal').innerText = parc.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         }
 
-        // Roda ao carregar para atualizar os totais iniciais
-        window.onload = function() {
-            calcularAutomovel();
-            calcularPesados();
-            calcularImovel();
-        }
+        window.onload = function() { calcAuto(); calcPesados(); calcImo(); }
     </script>
 </body>
 </html>

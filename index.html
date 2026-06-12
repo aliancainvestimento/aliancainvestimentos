@@ -226,7 +226,7 @@
     <section class="hero">
         <div class="hero-glow-layer"></div>
         <h1>“Transformamos crédito em <span>oportunidades reais.”</span></h1>
-        <p>“Financiamento, consórcio e investimento com atendimento especializado para todo o Brasil.”</p>
+        <p>“Financiamento, consórcio e investmento com atendimento especializado para todo o Brasil.”</p>
         <button class="btn-gold" onclick="document.getElementById('simulador').scrollIntoView()">Iniciar Simulação</button>
     </section>
 
@@ -411,14 +411,14 @@
             <div class="sim-card">
                 <div class="card-img-container">
                     <span class="card-badge">Agronegócio</span>
-                    <img src="https://images.unsplash.com/photo-1624462966581-bc6d768cbce5?w=600&auto=format&fit=crop&q=80" alt="Trator trabalhando no campo agropecuário">
+                    <img src="https://images.unsplash.com/photo-1594142168913-c36ae25fe5eb?w=600&auto=format&fit=crop&q=80" alt="Trator moderno trabalhando na fazenda">
                 </div>
                 <div class="card-content">
                     <div>
                         <h3>Agro</h3>
                         <ul class="feature-bullets">
-                            <li><i class="fa-solid fa-check"></i> Compra de fazendas, gado de corte e leiteiro</li>
-                            <li><i class="fa-solid fa-check"></i> Tratores, implementos e apicultura especializada</li>
+                            <li><i class="fa-solid fa-check"></i> Compra de fazendas, gado de corte ou leite</li>
+                            <li><i class="fa-solid fa-check"></i> Tratores, implementos e apicultura comercial</li>
                         </ul>
                         <div class="slider-group">
                             <label>Valor de Alocação: <span id="agroValT">R$ 500.000</span></label>
@@ -549,7 +549,7 @@
             document.getElementById('camPrazoT').innerText = camP + ' meses';
             document.getElementById('camTotal').innerText = (((camV - camE) * 1.27) / camP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
-            // IMÓVEIS (CALIBRADO FIELMENTE A 26% DE TAXA DE JUROS ADICIONAIS)
+            // IMÓVEIS (CALIBRADO RIGOROSAMENTE COM 26% DE TAXAS / JUROS SOBRE O SALDO DEVEDOR)
             let iV = parseInt(document.getElementById('imoVal').value);
             let iE = parseInt(document.getElementById('imoEnt').value);
             let iP = parseInt(document.getElementById('imoPrazo').value);

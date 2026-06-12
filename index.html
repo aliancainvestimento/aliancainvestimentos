@@ -35,7 +35,7 @@
             border-bottom: 1px solid var(--glass-border);
         }
 
-        /* LOGO 'A' ARTÍSTICO TRIDIMENSIONAL COM LINHAS ENTRELAÇADAS */
+        /* LOGO 'A' ARTÍSTICO TRIDIMENSIONAL */
         .brand-container { display: flex; align-items: center; gap: 15px; }
         
         .logo-artistic {
@@ -134,7 +134,7 @@
         .benefit-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff; }
         .benefit-card p { color: #94a3b8; font-size: 14.5px; line-height: 1.6; }
 
-        /* CARDS DO SIMULADOR COM HOVER */
+        /* CARDS DO SIMULADOR */
         .simulators { padding: 120px 5%; background: radial-gradient(circle at 50% 100%, #06152d 0%, var(--bg-deep) 100%); }
         .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; max-width: 1300px; margin: 50px auto 0; }
         .sim-card {
@@ -144,7 +144,7 @@
         }
         .sim-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
         
-        .card-img-container { width: 100%; height: 240px; position: relative; overflow: hidden; }
+        .card-img-container { width: 100%; height: 240px; position: relative; overflow: hidden; background: #081426; }
         .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .sim-card:hover .card-img-container img { transform: scale(1.06); filter: brightness(1.1); }
         .card-badge { position: absolute; top: 20px; left: 20px; background: rgba(3, 10, 22, 0.8); backdrop-filter: blur(5px); border: 1px solid var(--gold); color: #ffffff; padding: 6px 14px; border-radius: 50px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
@@ -168,7 +168,7 @@
         .btn-action-trigger { width: 100%; background: linear-gradient(135deg, var(--royal-blue) 0%, #1d4ed8 100%); color: white; border: none; padding: 18px; border-radius: 14px; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; cursor: pointer; margin-top: 25px; transition: 0.3s; box-shadow: 0 4px 15px rgba(37,99,235,0.2); }
         .btn-action-trigger:hover { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: var(--bg-deep); transform: scale(1.02); }
 
-        /* CARROSSEL DE DEPOIMENTOS */
+        /* DEPOIMENTOS */
         .testimonials-section { padding: 120px 5%; background: var(--bg-deep); text-align: center; position: relative; }
         .carousel-container { max-width: 1000px; margin: 50px auto 0; position: relative; overflow: hidden; }
         .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); width: 200%; }
@@ -183,10 +183,8 @@
         .carousel-nav-btn { background: var(--glass); border: 1px solid var(--glass-border); color: #ffffff; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 18px; transition: 0.3s; margin: 30px 10px 0; }
         .carousel-nav-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(8, 28, 58, 0.8); }
 
-        /* FOOTER */
         footer { background: #030812; color: #475569; text-align: center; padding: 60px 20px; font-size: 13px; border-top: 1px solid var(--glass-border); }
         
-        /* WHATSAPP FLUTUANTE */
         .whatsapp-float-link {
             position: fixed; bottom: 35px; right: 35px; background-color: #25d366; color: white;
             width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -228,7 +226,7 @@
     <section class="hero">
         <div class="hero-glow-layer"></div>
         <h1>“Transformamos crédito em <span>oportunidades reais.”</span></h1>
-        <p>“Financiamento, consórcio e investimento com atendimento specialized para todo o Brasil.”</p>
+        <p>“Financiamento, consórcio e investimento com atendimento especializado para todo o Brasil.”</p>
         <button class="btn-gold" onclick="document.getElementById('simulador').scrollIntoView()">Iniciar Simulação</button>
     </section>
 
@@ -275,7 +273,9 @@
                 <p>Operações capilarizadas com validade jurídica e contratual nacional.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-icon-wrapper"><i class="fa-solid fa-chart-line-down"></i></div>
+                <div class="benefit-icon-wrapper">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                </div>
                 <h3>Taxas competitivas</h3>
                 <p>Alinhamento direto com os melhores índices econômicos nacionais.</p>
             </div>
@@ -411,7 +411,7 @@
             <div class="sim-card">
                 <div class="card-img-container">
                     <span class="card-badge">Agronegócio</span>
-                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?w=600&auto=format&fit=crop&q=80" alt="Trator Moderno Campo Agro">
+                    <img src="https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=600&auto=format&fit=crop&q=80" alt="Trator Campo Agro">
                 </div>
                 <div class="card-content">
                     <div>
@@ -473,10 +473,8 @@
 
     <section class="testimonials-section" id="depoimentos">
         <h2 class="section-headline">Depoimentos pelo Brasil</h2>
-        
         <div class="carousel-container">
             <div class="carousel-track" id="track">
-                
                 <div class="carousel-slide">
                     <div class="testimonial-bubble">
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
@@ -489,7 +487,6 @@
                         <div class="testimonial-author">Camila Rodrigues <span>Uberlândia - MG</span></div>
                     </div>
                 </div>
-
                 <div class="carousel-slide">
                     <div class="testimonial-bubble">
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
@@ -502,10 +499,8 @@
                         <div class="testimonial-author">Letícia Soares <span>Salvador - BA</span></div>
                     </div>
                 </div>
-
             </div>
         </div>
-        
         <button class="carousel-nav-btn" onclick="moveCarousel(0)"><i class="fa-solid fa-arrow-left"></i></button>
         <button class="carousel-nav-btn" onclick="moveCarousel(1)"><i class="fa-solid fa-arrow-right"></i></button>
     </section>
@@ -521,8 +516,8 @@
     <script>
         function fmt(v) { return 'R$ ' + parseInt(v).toLocaleString('pt-BR'); }
 
-        // Código idêntico do simulador matemático está mantido intacto aqui para o correto cálculo das parcelas.
         function runEngine() {
+            // VEÍCULOS
             let cV = parseInt(document.getElementById('carVal').value);
             let cE = parseInt(document.getElementById('carEnt').value);
             let cP = parseInt(document.getElementById('carPrazo').value);
@@ -533,6 +528,7 @@
             let cJ = cV >= 60000 ? 1.225 : 1.19;
             document.getElementById('carTotal').innerText = (((cV - cE) * cJ) / cP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
+            // MOTOS
             let mV = parseInt(document.getElementById('motoVal').value);
             let mE = parseInt(document.getElementById('motoEnt').value);
             let mP = parseInt(document.getElementById('motoPrazo').value);
@@ -543,6 +539,7 @@
             let mJ = mV >= 60000 ? 1.225 : 1.19;
             document.getElementById('motoTotal').innerText = (((mV - mE) * mJ) / mP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
+            // CAMINHÕES
             let camV = parseInt(document.getElementById('camVal').value);
             let camE = parseInt(document.getElementById('camEnt').value);
             let camP = parseInt(document.getElementById('camPrazo').value);
@@ -552,6 +549,7 @@
             document.getElementById('camPrazoT').innerText = camP + ' meses';
             document.getElementById('camTotal').innerText = (((camV - camE) * 1.27) / camP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
+            // IMÓVEIS (CÁLCULO ATUALIZADO RIGOROSAMENTE A 26% DE JUROS ADICIONAIS)
             let iV = parseInt(document.getElementById('imoVal').value);
             let iE = parseInt(document.getElementById('imoEnt').value);
             let iP = parseInt(document.getElementById('imoPrazo').value);
@@ -561,6 +559,7 @@
             document.getElementById('imoPrazoT').innerText = iP + ' meses';
             document.getElementById('imoTotal').innerText = (((iV - iE) * 1.26) / iP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
+            // AGRO
             let aV = parseInt(document.getElementById('agroVal').value);
             let aE = parseInt(document.getElementById('agroEnt').value);
             let aP = parseInt(document.getElementById('agroPrazo').value);
@@ -570,6 +569,7 @@
             document.getElementById('agroPrazoT').innerText = aP + ' meses';
             document.getElementById('agroTotal').innerText = (((aV - aE) * 1.27) / aP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
+            // INVESTIMENTOS
             let invV = parseInt(document.getElementById('invVal').value);
             let invE = parseInt(document.getElementById('invEnt').value);
             let invP = parseInt(document.getElementById('invPrazo').value);

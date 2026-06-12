@@ -67,7 +67,7 @@
         .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold); }
 
-        /* HERO BANNER PREMIUM SEM GRID DE IMAGENS */
+        /* HERO BANNER PREMIUM */
         .hero {
             position: relative;
             padding: 240px 5% 150px;
@@ -95,6 +95,14 @@
             font-size: 20px; color: #94a3b8; max-width: 780px;
             margin: 0 auto 50px; font-weight: 400; line-height: 1.7;
         }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+            color: var(--bg-deep); border: none; padding: 18px 40px; font-weight: 700;
+            border-radius: 50px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+            cursor: pointer; transition: 0.3s ease; box-shadow: 0 10px 25px rgba(214, 175, 55, 0.25);
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(214, 175, 55, 0.4); }
 
         /* NÚMEROS DE IMPACTO */
         .counters-section { background: #040c1a; padding: 60px 5%; border-bottom: 1px solid var(--glass-border); }
@@ -220,7 +228,7 @@
     <section class="hero">
         <div class="hero-glow-layer"></div>
         <h1>“Transformamos crédito em <span>oportunidades reais.”</span></h1>
-        <p>“Financiamento, consórcio e investimento com atendimento especializado para todo o Brasil.”</p>
+        <p>“Financiamento, consórcio e investimento com atendimento specialized para todo o Brasil.”</p>
         <button class="btn-gold" onclick="document.getElementById('simulador').scrollIntoView()">Iniciar Simulação</button>
     </section>
 
@@ -267,7 +275,7 @@
                 <p>Operações capilarizadas com validade jurídica e contratual nacional.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-icon-wrapper"><i class="fa-solid fa-arrow-down-percent"></i></div>
+                <div class="benefit-icon-wrapper"><i class="fa-solid fa-chart-line-down"></i></div>
                 <h3>Taxas competitivas</h3>
                 <p>Alinhamento direto com os melhores índices econômicos nacionais.</p>
             </div>
@@ -403,7 +411,7 @@
             <div class="sim-card">
                 <div class="card-img-container">
                     <span class="card-badge">Agronegócio</span>
-                    <img src="https://images.unsplash.com/photo-1624474718534-1925b302c385?w=600&auto=format&fit=crop&q=80" alt="Investimento Agro Trator">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?w=600&auto=format&fit=crop&q=80" alt="Trator Moderno Campo Agro">
                 </div>
                 <div class="card-content">
                     <div>
@@ -513,8 +521,8 @@
     <script>
         function fmt(v) { return 'R$ ' + parseInt(v).toLocaleString('pt-BR'); }
 
+        // Código idêntico do simulador matemático está mantido intacto aqui para o correto cálculo das parcelas.
         function runEngine() {
-            // CARROS
             let cV = parseInt(document.getElementById('carVal').value);
             let cE = parseInt(document.getElementById('carEnt').value);
             let cP = parseInt(document.getElementById('carPrazo').value);
@@ -525,7 +533,6 @@
             let cJ = cV >= 60000 ? 1.225 : 1.19;
             document.getElementById('carTotal').innerText = (((cV - cE) * cJ) / cP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
-            // MOTOS
             let mV = parseInt(document.getElementById('motoVal').value);
             let mE = parseInt(document.getElementById('motoEnt').value);
             let mP = parseInt(document.getElementById('motoPrazo').value);
@@ -536,7 +543,6 @@
             let mJ = mV >= 60000 ? 1.225 : 1.19;
             document.getElementById('motoTotal').innerText = (((mV - mE) * mJ) / mP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
-            // CAMINHÕES
             let camV = parseInt(document.getElementById('camVal').value);
             let camE = parseInt(document.getElementById('camEnt').value);
             let camP = parseInt(document.getElementById('camPrazo').value);
@@ -546,7 +552,6 @@
             document.getElementById('camPrazoT').innerText = camP + ' meses';
             document.getElementById('camTotal').innerText = (((camV - camE) * 1.27) / camP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
-            // IMÓVEIS
             let iV = parseInt(document.getElementById('imoVal').value);
             let iE = parseInt(document.getElementById('imoEnt').value);
             let iP = parseInt(document.getElementById('imoPrazo').value);
@@ -556,7 +561,6 @@
             document.getElementById('imoPrazoT').innerText = iP + ' meses';
             document.getElementById('imoTotal').innerText = (((iV - iE) * 1.26) / iP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
-            // AGRO
             let aV = parseInt(document.getElementById('agroVal').value);
             let aE = parseInt(document.getElementById('agroEnt').value);
             let aP = parseInt(document.getElementById('agroPrazo').value);
@@ -566,7 +570,6 @@
             document.getElementById('agroPrazoT').innerText = aP + ' meses';
             document.getElementById('agroTotal').innerText = (((aV - aE) * 1.27) / aP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
-            // INVESTIMENTOS
             let invV = parseInt(document.getElementById('invVal').value);
             let invE = parseInt(document.getElementById('invEnt').value);
             let invP = parseInt(document.getElementById('invPrazo').value);

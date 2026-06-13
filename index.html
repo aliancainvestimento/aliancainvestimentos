@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aliança Investimentos & Consórcios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&family=Montserrat:wght=500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -226,7 +226,7 @@
     <section class="hero">
         <div class="hero-glow-layer"></div>
         <h1>“Transformamos crédito em <span>oportunidades reais.”</span></h1>
-        <p>“Financiamento, consórcio e investmento com atendimento especializado para todo o Brasil.”</p>
+        <p>“Financiamento, consórcio e investimento com atendimento especializado para todo o Brasil.”</p>
         <button class="btn-gold" onclick="document.getElementById('simulador').scrollIntoView()">Iniciar Simulação</button>
     </section>
 
@@ -411,7 +411,7 @@
             <div class="sim-card">
                 <div class="card-img-container">
                     <span class="card-badge">Agronegócio</span>
-                    <img src="https://images.unsplash.com/photo-1594142168913-c36ae25fe5eb?w=600&auto=format&fit=crop&q=80" alt="Trator moderno trabalhando na fazenda">
+                    <img src="https://images.unsplash.com/photo-1530261869140-5499252c879d?w=600&auto=format&fit=crop&q=80" alt="Trator moderno trabalhando no campo">
                 </div>
                 <div class="card-content">
                     <div>
@@ -549,7 +549,7 @@
             document.getElementById('camPrazoT').innerText = camP + ' meses';
             document.getElementById('camTotal').innerText = (((camV - camE) * 1.27) / camP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
-            // IMÓVEIS (CALIBRADO RIGOROSAMENTE COM 26% DE TAXAS / JUROS SOBRE O SALDO DEVEDOR)
+            // IMÓVEIS (TAXA DE 26%)
             let iV = parseInt(document.getElementById('imoVal').value);
             let iE = parseInt(document.getElementById('imoEnt').value);
             let iP = parseInt(document.getElementById('imoPrazo').value);

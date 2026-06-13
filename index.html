@@ -317,7 +317,7 @@
                         </div>
                     </div>
                     <div class="total-display-box"><p>Parcela Estimada</p><strong id="carTotal">R$ 0,00</strong></div>
-                    <a href="https://wa.me/5562981956336?text=Olá! Fiz uma simulação de Veículos e gostaria de mais detalhes." target="_blank" class="btn-action-trigger">Avançar com Especialista</a>
+                    <button class="btn-action-trigger" onclick="enviarWhatsApp('Veículos', 'carVal', 'carEnt', 'carPrazo', 'carTotal')">Avançar com Especialista</button>
                 </div>
             </div>
 
@@ -348,7 +348,7 @@
                         </div>
                     </div>
                     <div class="total-display-box"><p>Parcela Estimada</p><strong id="motoTotal">R$ 0,00</strong></div>
-                    <a href="https://wa.me/5562981956336?text=Olá! Fiz uma simulação de Moto e gostaria de mais detalhes." target="_blank" class="btn-action-trigger">Avançar com Especialista</a>
+                    <button class="btn-action-trigger" onclick="enviarWhatsApp('Motos', 'motoVal', 'motoEnt', 'motoPrazo', 'motoTotal')">Avançar com Especialista</button>
                 </div>
             </div>
 
@@ -379,7 +379,7 @@
                         </div>
                     </div>
                     <div class="total-display-box"><p>Parcela Estimada</p><strong id="camTotal">R$ 0,00</strong></div>
-                    <a href="https://wa.me/5562981956336?text=Olá! Fiz uma simulação da Linha Pesados/Agro e gostaria de atendimento." target="_blank" class="btn-action-trigger">Avançar com Especialista</a>
+                    <button class="btn-action-trigger" onclick="enviarWhatsApp('Caminhões / Pesados / Agro', 'camVal', 'camEnt', 'camPrazo', 'camTotal')">Avançar com Especialista</button>
                 </div>
             </div>
 
@@ -410,7 +410,7 @@
                         </div>
                     </div>
                     <div class="total-display-box"><p>Parcela Estimada</p><strong id="imoTotal">R$ 0,00</strong></div>
-                    <a href="https://wa.me/5562981956336?text=Olá! Fiz uma simulação de Imóveis e gostaria de mais detalhes." target="_blank" class="btn-action-trigger">Avançar com Especialista</a>
+                    <button class="btn-action-trigger" onclick="enviarWhatsApp('Imóveis', 'imoVal', 'imoEnt', 'imoPrazo', 'imoTotal')">Avançar com Especialista</button>
                 </div>
             </div>
 
@@ -441,7 +441,7 @@
                         </div>
                     </div>
                     <div class="total-display-box"><p>Parcela Estimada</p><strong id="invTotal">R$ 0,00</strong></div>
-                    <a href="https://wa.me/5562981956336?text=Olá! Fiz uma simulação de Investimentos e gostaria de mais detalhes." target="_blank" class="btn-action-trigger">Avançar com Especialista</a>
+                    <button class="btn-action-trigger" onclick="enviarWhatsApp('Investimentos', 'invVal', 'invEnt', 'invPrazo', 'invTotal')">Avançar com Especialista</button>
                 </div>
             </div>
 
@@ -545,6 +545,24 @@
             document.getElementById('invEntT').innerText = fmt(invE);
             document.getElementById('invPrazoT').innerText = invP + ' meses';
             document.getElementById('invTotal').innerText = (((invV - invE) * 1.25) / invP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+        }
+
+        // NOVA FUNÇÃO INTELIGENTE DE CAPTURA PARA O WHATSAPP
+        function enviarWhatsApp(categoria, idVal, idEnt, idPrazo, idTotal) {
+            let valor = parseInt(document.getElementById(idVal).value).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+            let entrada = parseInt(document.getElementById(idEnt).value).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+            let prazo = document.getElementById(idPrazo).value;
+            let parcela = document.getElementById(idTotal).innerText;
+            
+            // Texto formatado para o WhatsApp
+            let texto = `Olá! Fiz uma simulação no site para *${categoria}* e gostaria de mais detalhes. Prazos selecionados:\n\n` +
+                        `• *Valor Pretendido:* ${valor}\n` +
+                        `• *Entrada:* ${entrada}\n` +
+                        `• *Prazo desejado:* ${prazo} meses\n` +
+                        `• *Parcela Estimada:* ${parcela}`;
+            
+            let url = `https://wa.me/5562981956336?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank');
         }
 
         function moveCarousel(index) {

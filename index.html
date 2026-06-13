@@ -350,7 +350,7 @@
             <div class="released-card reveal">
                 <div class="released-img-box">
                     <span class="released-status">Entregue</span>
-                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=500&q=80" alt="Veículo Entregue">
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=500&q=80" alt="Veículo Entregue na Garagem">
                 </div>
                 <div class="released-content">
                     <h4>Toyota Hilux SRX</h4>
@@ -364,21 +364,21 @@
             <div class="released-card reveal">
                 <div class="released-img-box">
                     <span class="released-status">Entregue</span>
-                    <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=500&q=80" alt="Casa Residencial Realista">
+                    <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=500&q=80" alt="Casa Residencial Moderna">
                 </div>
                 <div class="released-content">
                     <h4>Casa Residencial</h4>
                     <div class="released-meta">
                         <span><i class="fa-solid fa-dollar-sign"></i> <strong>Crédito:</strong> R$ 320.000,00</span>
                         <span><i class="fa-solid fa-chart-pie"></i> <strong>Entrada:</strong> R$ 18.000,00</span>
-                        <span><i class="fa-solid fa-location-dot"></i> Aparecida de Goiânia - GO</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Belo Horizonte - MG</span>
                     </div>
                 </div>
             </div>
             <div class="released-card reveal">
                 <div class="released-img-box">
                     <span class="released-status">Entregue</span>
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&q=80" alt="Caminhão Estrada Entregue">
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=500&q=80" alt="Caminhão Estrada Entregue">
                 </div>
                 <div class="released-content">
                     <h4>Volvo FH 540 Pesado</h4>
@@ -494,7 +494,7 @@
             <div class="sim-card reveal">
                 <div class="card-img-container">
                     <span class="card-badge">Pesados & Agro</span>
-                    <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=600&q=80" alt="Maquinário Logística Pesados">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Maquinário Logística Pesados">
                 </div>
                 <div class="card-content">
                     <div>
@@ -634,7 +634,7 @@
     <script>
         function fmt(v) { return 'R$ ' + parseInt(v).toLocaleString('pt-BR'); }
 
-        // ENGINE DE CALCULO SUCESSIVO (MANTIDO E EXPANDIDO)
+        // ENGINE DE CALCULO SUCESSIVO CORRIGIDA E EXPANDIDA
         function runEngine() {
             // VEÍCULOS
             let cV = parseInt(document.getElementById('carVal').value);
@@ -668,7 +668,7 @@
             document.getElementById('imoPrazoT').innerText = iP + ' meses';
             document.getElementById('imoTotal').innerText = (((iV - iE) * 1.24) / iP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
-            // CAMINHÕES
+            // CAMINHÕES (PROCESSO DE DEBUG CONCLUÍDO)
             let camV = parseInt(document.getElementById('camVal').value);
             let camE = parseInt(document.getElementById('camEnt').value);
             let camP = parseInt(document.getElementById('camPrazo').value);

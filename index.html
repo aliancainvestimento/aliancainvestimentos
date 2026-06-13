@@ -3,29 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aliança Investimentos & Consórcios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&family=Montserrat:wght=500;600;700;800&display=swap" rel="stylesheet">
+    <title>Aliança Investimentos & Consórcios | Crédito Inteligente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&family=Montserrat:wght=500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --navy-dark: #081C3A;
+            --navy-dark: #061224;
+            --navy-deep: #030A16;
             --royal-blue: #2563EB;
+            --neon-blue: #00F2FF;
             --gold: #D4AF37;
             --gold-light: #F3CF65;
             --gold-dark: #AA771C;
-            --bg-deep: #030A16;
-            --glass: rgba(8, 28, 58, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass: rgba(8, 28, 58, 0.35);
+            --glass-hover: rgba(12, 42, 86, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.07);
+            --neon-glow: rgba(0, 242, 255, 0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { background-color: var(--bg-deep); color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        body { 
+            background-color: var(--navy-deep); 
+            color: #f1f5f9; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            -webkit-font-smoothing: antialiased; 
+            overflow-x: hidden; 
+        }
 
-        /* BARRA DE NAVEGAÇÃO FIXA SMART GLASS */
+        /* Animações de Entrada Genéricas (Fade-in on scroll) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* BARRA DE NAVEGAÇÃO SMART GLASS */
         .navbar {
-            background: rgba(3, 10, 22, 0.8);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(3, 10, 22, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
@@ -35,174 +55,218 @@
             border-bottom: 1px solid var(--glass-border);
         }
 
-        /* LOGO 'A' ARTÍSTICO TRIDIMENSIONAL */
         .brand-container { display: flex; align-items: center; gap: 15px; }
-        
         .logo-artistic {
             position: relative;
-            width: 50px; height: 50px;
+            width: 48px; height: 48px;
             display: flex; align-items: center; justify-content: center;
         }
         .logo-a-line {
             position: absolute;
-            width: 100%; height: 100%;
             font-family: 'Montserrat', sans-serif;
-            font-size: 52px; font-weight: 900;
+            font-size: 48px; font-weight: 900;
             background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            line-height: 50px; text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            letter-spacing: -3px;
+            line-height: 48px; letter-spacing: -3px;
         }
         .logo-artistic::before {
-            content: ''; position: absolute; width: 44px; height: 44px;
-            border: 2px solid var(--gold); border-radius: 12px;
-            transform: rotate(45deg); opacity: 0.4; animation: pulseGlow 3s infinite alternate;
+            content: ''; position: absolute; width: 40px; height: 40px;
+            border: 2px solid var(--neon-blue); border-radius: 10px;
+            transform: rotate(45deg); opacity: 0.3; animation: pulseGlow 3s infinite alternate;
         }
 
         .brand-text-group { display: flex; flex-direction: column; }
-        .brand-main { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: 6px; color: #ffffff; line-height: 1; }
-        .brand-sub { font-size: 9px; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); font-weight: 600; margin-top: 4px; }
+        .brand-main { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; letter-spacing: 5px; color: #ffffff; line-height: 1; }
+        .brand-sub { font-size: 9px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--gold); font-weight: 600; margin-top: 4px; }
 
         .nav-links { display: flex; gap: 25px; list-style: none; }
         .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover { color: var(--neon-blue); }
 
-        /* HERO BANNER PREMIUM */
+        /* HERO BANNER CINEMATOGRÁFICO */
         .hero {
             position: relative;
-            padding: 240px 5% 150px;
-            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.25) 0%, var(--bg-deep) 70%);
+            padding: 220px 5% 140px;
+            background: radial-gradient(circle at 50% 40%, rgba(37, 99, 235, 0.18) 0%, var(--navy-deep) 65%);
             text-align: center;
             overflow: hidden;
             border-bottom: 1px solid var(--glass-border);
         }
         .hero-glow-layer {
-            position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);
-            width: 700px; height: 350px; background: var(--royal-blue);
-            filter: blur(150px); opacity: 0.18; pointer-events: none;
+            position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);
+            width: 600px; height: 300px; background: var(--royal-blue);
+            filter: blur(140px); opacity: 0.15; pointer-events: none;
         }
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 58px; font-weight: 800; max-width: 1000px;
-            margin: 0 auto 30px; line-height: 1.25; letter-spacing: -1px;
+            font-size: 54px; font-weight: 800; max-width: 950px;
+            margin: 0 auto 25px; line-height: 1.25; letter-spacing: -1px;
             color: #ffffff;
         }
         .hero h1 span {
-            background: linear-gradient(135deg, #ffffff 30%, var(--gold-light) 100%);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--neon-blue) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .hero p {
-            font-size: 20px; color: #94a3b8; max-width: 780px;
-            margin: 0 auto 50px; font-weight: 400; line-height: 1.7;
+            font-size: 19px; color: #94a3b8; max-width: 750px;
+            margin: 0 auto 45px; line-height: 1.7;
         }
         
         .btn-gold {
             background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
-            color: var(--bg-deep); border: none; padding: 18px 40px; font-weight: 700;
-            border-radius: 50px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
-            cursor: pointer; transition: 0.3s ease; box-shadow: 0 10px 25px rgba(214, 175, 55, 0.25);
+            color: var(--navy-deep); border: none; padding: 16px 38px; font-weight: 700;
+            border-radius: 50px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+            cursor: pointer; transition: 0.3s ease; box-shadow: 0 8px 25px rgba(214, 175, 55, 0.2);
         }
-        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(214, 175, 55, 0.4); }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(214, 175, 55, 0.35); }
 
-        /* NÚMEROS DE IMPACTO */
-        .counters-section { background: #040c1a; padding: 60px 5%; border-bottom: 1px solid var(--glass-border); }
-        .counters-grid { display: flex; justify-content: space-around; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 40px; }
-        .counter-item { text-align: center; }
-        .counter-item h2 { font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 800; color: var(--gold); margin-bottom: 8px; }
-        .counter-item p { color: #94a3b8; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+        /* NÚMEROS DE IMPACTO ANIMADOS */
+        .counters-section { background: var(--navy-dark); padding: 50px 5%; border-bottom: 1px solid var(--glass-border); }
+        .counters-grid { display: flex; justify-content: space-around; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 30px; }
+        .counter-item { text-align: center; min-width: 200px; }
+        .counter-item h2 { font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 800; color: var(--gold); margin-bottom: 6px; }
+        .counter-item p { color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
 
-        /* SEÇÃO SOBRE */
-        .about { padding: 120px 8%; text-align: center; background: var(--bg-deep); }
-        .section-headline { font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 700; color: #ffffff; margin-bottom: 20px; }
+        /* POR QUE CONFIAR NA ALIANÇA */
+        .trust-section { padding: 100px 5%; background: var(--navy-deep); text-align: center; }
+        .section-headline { font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 800; color: #ffffff; margin-bottom: 15px; }
         .section-headline span { color: var(--gold); }
-        .about p { max-width: 900px; margin: 0 auto; color: #94a3b8; font-size: 17px; line-height: 1.9; }
-
-        /* SEÇÃO BENEFÍCIOS */
-        .benefits { padding: 40px 5% 120px; }
-        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1200px; margin: 50px auto 0; }
-        .benefit-card {
-            background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            padding: 45px 30px; border-radius: 20px; border: 1px solid var(--glass-border);
-            transition: 0.4s ease;
+        .section-sub { font-size: 15px; color: #94a3b8; max-width: 600px; margin: 0 auto 50px; }
+        
+        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .trust-card {
+            background: var(--glass); border: 1px solid var(--glass-border); padding: 40px 25px; border-radius: 20px;
+            transition: all 0.4s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
         }
-        .benefit-card:hover { transform: translateY(-8px); border-color: var(--royal-blue); background: rgba(8, 28, 58, 0.6); }
-        .benefit-icon-wrapper {
-            width: 65px; height: 65px; background: rgba(37, 99, 235, 0.15); color: var(--gold);
-            border-radius: 16px; display: flex; align-items: center; justify-content: center;
-            font-size: 26px; margin-bottom: 25px; border: 1px solid rgba(214, 175, 55, 0.2);
-        }
-        .benefit-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff; }
-        .benefit-card p { color: #94a3b8; font-size: 14.5px; line-height: 1.6; }
+        .trust-card:hover { transform: translateY(-7px); border-color: var(--neon-blue); box-shadow: 0 15px 35px var(--neon-glow); }
+        .trust-icon { font-size: 32px; color: var(--neon-blue); margin-bottom: 20px; }
+        .trust-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #fff; }
+        .trust-card p { font-size: 14px; color: #94a3b8; line-height: 1.6; }
 
-        /* CARDS DO SIMULADOR */
-        .simulators { padding: 120px 5%; background: radial-gradient(circle at 50% 100%, #06152d 0%, var(--bg-deep) 100%); }
-        .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; max-width: 1300px; margin: 50px auto 0; }
+        /* CRÉDITOS LIBERADOS RECENTEMENTE */
+        .released-section { padding: 100px 5%; background: rgba(8, 28, 58, 0.15); border-top: 1px solid var(--glass-border); }
+        .released-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .released-card {
+            background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.4s ease;
+        }
+        .released-card:hover { transform: scale(1.03); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .released-img-box { width: 100%; height: 180px; position: relative; background: #081426; }
+        .released-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .released-status { position: absolute; top: 15px; right: 15px; background: #10b981; color: white; padding: 4px 10px; border-radius: 50px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .released-content { padding: 25px; }
+        .released-content h4 { font-size: 18px; color: #fff; font-weight: 700; margin-bottom: 10px; }
+        .released-meta { font-size: 13px; color: #94a3b8; display: flex; flex-direction: column; gap: 6px; }
+        .released-meta span i { color: var(--gold); margin-right: 6px; width: 16px; text-align: center; }
+
+        /* SIMULADORES INTELIGENTES GASSMORPHISM */
+        .simulators { padding: 100px 5%; background: radial-gradient(circle at 50% 100%, #06152d 0%, var(--navy-deep) 100%); }
+        .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; max-width: 1300px; margin: 0 auto; }
         .sim-card {
             background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border-radius: 24px; overflow: hidden; border: 1px solid var(--glass-border);
-            display: flex; flex-direction: column; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .sim-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+        .sim-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 25px 50px rgba(0,0,0,0.35); }
         
-        .card-img-container { width: 100%; height: 240px; position: relative; overflow: hidden; background: #081426; }
+        .card-img-container { width: 100%; height: 220px; position: relative; overflow: hidden; }
         .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .sim-card:hover .card-img-container img { transform: scale(1.06); filter: brightness(1.1); }
-        .card-badge { position: absolute; top: 20px; left: 20px; background: rgba(3, 10, 22, 0.8); backdrop-filter: blur(5px); border: 1px solid var(--gold); color: #ffffff; padding: 6px 14px; border-radius: 50px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .sim-card:hover .card-img-container img { transform: scale(1.05); filter: brightness(1.05); }
+        .card-badge { position: absolute; top: 20px; left: 20px; background: rgba(3, 10, 22, 0.85); backdrop-filter: blur(5px); border: 1px solid var(--gold); color: #ffffff; padding: 5px 12px; border-radius: 50px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-        .card-content { padding: 40px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-content h3 { font-family: 'Montserrat', sans-serif; font-size: 26px; color: #ffffff; font-weight: 700; margin-bottom: 6px; }
-        .card-subtitle { font-size: 13px; color: #94a3b8; line-height: 1.5; margin-bottom: 20px; font-weight: 500; }
+        .card-content { padding: 35px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-content h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; color: #ffffff; font-weight: 700; margin-bottom: 6px; }
+        .card-subtitle { font-size: 13px; color: #94a3b8; line-height: 1.5; margin-bottom: 20px; }
         
-        .feature-bullets { list-style: none; margin-bottom: 30px; }
-        .feature-bullets li { font-size: 14.5px; color: #cbd5e1; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .feature-bullets li i { color: var(--gold); font-size: 14px; }
+        .feature-bullets { list-style: none; margin-bottom: 25px; }
+        .feature-bullets li { font-size: 14px; color: #cbd5e1; margin-bottom: 9px; display: flex; align-items: center; gap: 10px; }
+        .feature-bullets li i { color: var(--gold); font-size: 13px; }
 
-        .slider-group { margin-bottom: 25px; }
-        .slider-group label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 10px; }
-        .slider-group label span { color: var(--gold-light); font-size: 15px; font-weight: 700; }
-        .slider-group input { width: 100%; accent-color: var(--royal-blue); height: 6px; border-radius: 5px; cursor: pointer; background: #0f1e36; }
+        .slider-group { margin-bottom: 22px; }
+        .slider-group label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 8px; }
+        .slider-group label span { color: var(--gold-light); font-size: 14px; font-weight: 700; }
+        .slider-group input { width: 100%; accent-color: var(--royal-blue); height: 5px; border-radius: 5px; cursor: pointer; background: #0f1e36; }
         
-        .total-display-box { background: rgba(3, 10, 22, 0.6); padding: 24px; border-radius: 16px; text-align: center; margin-top: 15px; border: 1px solid var(--glass-border); }
-        .total-display-box p { font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
-        .total-display-box strong { font-size: 36px; color: #ffffff; display: block; font-weight: 700; margin-top: 5px; font-family: 'Montserrat', sans-serif; }
+        .total-display-box { background: rgba(3, 10, 22, 0.5); padding: 20px; border-radius: 16px; text-align: center; margin-top: 10px; border: 1px solid var(--glass-border); }
+        .total-display-box p { font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+        .total-display-box strong { font-size: 32px; color: #ffffff; display: block; font-weight: 700; margin-top: 4px; font-family: 'Montserrat', sans-serif; }
         
-        .btn-action-trigger { width: 100%; background: linear-gradient(135deg, var(--royal-blue) 0%, #1d4ed8 100%); color: white; border: none; padding: 18px; border-radius: 14px; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; cursor: pointer; margin-top: 25px; transition: 0.3s; box-shadow: 0 4px 15px rgba(37,99,235,0.2); text-decoration: none; display: block; text-align: center; }
-        .btn-action-trigger:hover { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: var(--bg-deep); transform: scale(1.02); }
+        .btn-action-trigger { width: 100%; background: linear-gradient(135deg, var(--royal-blue) 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 14px; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; cursor: pointer; margin-top: 20px; transition: 0.3s; box-shadow: 0 4px 15px rgba(37,99,235,0.15); text-decoration: none; display: block; text-align: center; }
+        .btn-action-trigger:hover { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: var(--navy-deep); transform: scale(1.02); }
 
-        /* DEPOIMENTOS */
-        .testimonials-section { padding: 120px 5%; background: var(--bg-deep); text-align: center; position: relative; }
-        .carousel-container { max-width: 1000px; margin: 50px auto 0; position: relative; overflow: hidden; }
-        .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); width: 200%; }
+        /* DEPOIMENTOS COM FOTO DE PERFIL PROFISSIONAL */
+        .testimonials-section { padding: 100px 5%; background: var(--navy-deep); text-align: center; position: relative; }
+        .carousel-container { max-width: 1100px; margin: 40px auto 0; position: relative; overflow: hidden; }
+        .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); width: 200%; }
         .carousel-slide { width: 50%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 10px; }
         
-        .testimonial-bubble { background: var(--glass); border: 1px solid var(--glass-border); padding: 40px; border-radius: 24px; text-align: left; position: relative; }
-        .stars-row { color: var(--gold); margin-bottom: 15px; font-size: 13px; letter-spacing: 3px; }
-        .testimonial-bubble p { color: #cbd5e1; font-size: 15.5px; line-height: 1.6; font-style: italic; margin-bottom: 25px; }
+        .testimonial-bubble { background: var(--glass); border: 1px solid var(--glass-border); padding: 35px; border-radius: 24px; text-align: left; backdrop-filter: blur(10px); }
+        .stars-row { color: var(--gold); margin-bottom: 15px; font-size: 12px; letter-spacing: 2px; }
+        .testimonial-bubble p { color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin-bottom: 25px; }
+        
+        .testimonial-profile { display: flex; align-items: center; gap: 15px; }
+        .testimonial-avatar { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--gold); background: #0c213a; display: flex; align-items: center; justify-content: center; color: var(--gold-light); font-size: 18px; }
         .testimonial-author { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #ffffff; display: flex; flex-direction: column; }
-        .testimonial-author span { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 12px; color: #64748b; margin-top: 4px; }
+        .testimonial-author span { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 12px; color: #64748b; margin-top: 3px; }
         
-        .carousel-nav-btn { background: var(--glass); border: 1px solid var(--glass-border); color: #ffffff; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 18px; transition: 0.3s; margin: 30px 10px 0; }
-        .carousel-nav-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(8, 28, 58, 0.8); }
+        .carousel-nav-btn { background: var(--glass); border: 1px solid var(--glass-border); color: #ffffff; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 16px; transition: 0.3s; margin: 25px 8px 0; }
+        .carousel-nav-btn:hover { border-color: var(--neon-blue); color: var(--neon-blue); background: var(--glass-hover); }
 
-        footer { background: #030812; color: #475569; text-align: center; padding: 60px 20px; font-size: 13px; border-top: 1px solid var(--glass-border); }
-        
-        .whatsapp-float-link {
-            position: fixed; bottom: 35px; right: 35px; background-color: #25d366; color: white;
-            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 32px; box-shadow: 0 12px 30px rgba(37,211,102,0.4); z-index: 2000; text-decoration: none; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* SEÇÃO FAQ (ACCORDION) */
+        .faq-section { padding: 100px 5%; background: rgba(4, 12, 26, 0.4); border-top: 1px solid var(--glass-border); }
+        .faq-container { max-width: 800px; margin: 40px auto 0; text-align: left; }
+        .faq-item { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 14px; margin-bottom: 15px; overflow: hidden; transition: 0.3s ease; }
+        .faq-trigger { padding: 22px 28px; width: 100%; background: none; border: none; color: #fff; font-size: 16px; font-weight: 600; text-align: left; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .faq-trigger i { transition: transform 0.3s ease; color: var(--neon-blue); }
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0, 1, 0, 1); padding: 0 28px; color: #94a3b8; font-size: 14.5px; line-height: 1.7; }
+        .faq-item.open { border-color: rgba(0, 242, 255, 0.3); background: var(--glass-hover); }
+        .faq-item.open .faq-trigger i { transform: rotate(180deg); }
+        .faq-item.open .faq-content { max-height: 1000px; padding-bottom: 22px; transition: max-height 0.3s cubic-bezier(1, 0, 1, 0); }
+
+        /* RODAPÉ PREMIUM INSTITUCIONAL */
+        footer { 
+            background: #02060d; color: #64748b; padding: 70px 5% 40px; border-top: 1px solid var(--glass-border); font-size: 14px;
         }
-        .whatsapp-float-link:hover { transform: scale(1.15) rotate(5deg); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 50px; text-align: left; }
+        .footer-col h5 { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { line-height: 1.6; margin-bottom: 12px; }
+        .footer-col p i { color: var(--gold); margin-right: 10px; width: 16px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #64748b; text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: var(--neon-blue); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; text-align: center; font-size: 12px; }
+
+        /* WHATSAPP FLUTUANTE EXPANDIDO PROFISSIONAL */
+        .whatsapp-float-container {
+            position: fixed; bottom: 30px; right: 30px; z-index: 2000;
+            display: flex; align-items: center;
+        }
+        .whatsapp-float-link {
+            background-color: #25d366; color: white; padding: 14px 24px; border-radius: 50px;
+            display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 14px;
+            box-shadow: 0 10px 25px rgba(37,211,102,0.35); text-decoration: none; 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .whatsapp-float-link i { font-size: 20px; }
+        .whatsapp-float-link:hover { transform: scale(1.06) translateY(-3px); box-shadow: 0 15px 30px rgba(37,211,102,0.5); }
 
         @keyframes pulseGlow {
-            0% { transform: rotate(45deg) scale(0.95); opacity: 0.3; }
-            100% { transform: rotate(45deg) scale(1.05); opacity: 0.6; }
+            0% { transform: rotate(45deg) scale(0.96); opacity: 0.2; }
+            100% { transform: rotate(45deg) scale(1.04); opacity: 0.5; }
         }
 
+        /* RESPONSIVIDADE COMPLETA */
         @media(max-width: 1024px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 40px; }
+            .hero h1 { font-size: 38px; }
             .carousel-slide { grid-template-columns: 1fr; }
-            .sim-grid { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+            .sim-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        }
+        @media(max-width: 600px) {
+            .whatsapp-float-link span { display: none; }
+            .whatsapp-float-link { padding: 16px; border-radius: 50%; }
+            .whatsapp-float-link i { font-size: 24px; margin: 0; }
         }
     </style>
 </head>
@@ -218,79 +282,122 @@
         </div>
         <ul class="nav-links">
             <li><a href="#">Início</a></li>
-            <li><a href="#quem-somos">Quem Somos</a></li>
-            <li><a href="#beneficios">Soluções</a></li>
+            <li><a href="#por-que-alianca">Diferenciais</a></li>
             <li><a href="#simulador">Simulador</a></li>
-            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#liberados">Créditos Recentes</a></li>
+            <li><a href="#depoimentos">Avaliações</a></li>
+            <li><a href="#faq">Dúvidas</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <div class="hero-glow-layer"></div>
-        <h1>“Transformamos crédito em <span>oportunidades reais.”</span></h1>
-        <p>“Financiamento, consórcio e investmento com atendimento especializado para todo o Brasil.”</p>
-        <button class="btn-gold" onclick="document.getElementById('simulador').scrollIntoView()">Iniciar Simulação</button>
+        <h1 class="reveal">“Transformamos crédito em <span>oportunidades reais.”</span></h1>
+        <p class="reveal">Financiamento, consórcio e alavancagem de capital com suporte jurídico completo e as menores taxas do mercado.</p>
+        <button class="btn-gold reveal" onclick="document.getElementById('simulador').scrollIntoView()">Iniciar Simulação</button>
     </section>
 
     <section class="counters-section">
         <div class="counters-grid">
             <div class="counter-item">
-                <h2>+4 Anos</h2>
-                <p>De mercado consolidado</p>
+                <h2 class="counter-val" data-target="1500">+0</h2>
+                <p>Clientes Atendidos</p>
             </div>
             <div class="counter-item">
-                <h2>+1.000</h2>
-                <p>Clientes atendidos</p>
+                <h2 class="counter-val" data-target="85">+0</h2>
+                <p>Milhões Liberados</p>
             </div>
             <div class="counter-item">
-                <h2>Milhões</h2>
-                <p>Em crédito liberado</p>
+                <h2 class="counter-val" data-target="4">+0</h2>
+                <p>Anos de Mercado</p>
+            </div>
+            <div class="counter-item">
+                <h2 class="counter-val" data-target="26">+0</h2>
+                <p>Estados Atendidos</p>
             </div>
         </div>
     </section>
 
-    <section class="about" id="quem-somos">
-        <h2 class="section-headline">Quem Somos</h2>
-        <p>Somos uma financeira totalmente completa, que está há mais de 4 anos no mercado realizando sonhos de quem deseja seu primeiro bem. Pautados na transparência, solidez e compromisso com o futuro, conectamos nossos clientes às melhores linhas de crédito, consórcios estruturados e investimentos de forma personalizada, garantindo máxima excelência na ampliação do seu patrimônio.</p>
+    <section class="trust-section" id="por-que-alianca">
+        <h2 class="section-headline reveal">Por que confiar na <span>Aliança?</span></h2>
+        <p class="section-sub reveal">Atuamos com transparência e solidez regulamentada para garantir a segurança do seu patrimônio.</p>
+        <div class="trust-grid">
+            <div class="trust-card reveal">
+                <div class="trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Segurança Homologada</h3>
+                <p>Operações em conformidade com as diretrizes do Banco Central do Brasil e respaldo jurídico contratual.</p>
+            </div>
+            <div class="trust-card reveal">
+                <div class="trust-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <h3>Mesa Técnica Analítica</h3>
+                <p>Profissionais experientes que reestruturam o seu perfil financeiro para garantir o maior índice de aprovação.</p>
+            </div>
+            <div class="trust-card reveal">
+                <div class="trust-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Transparência Pauta Zero</h3>
+                <p>Sem taxas ocultas, sem pegadinhas contratuais. Valores exatos calculados de ponta a ponta.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="benefits" id="beneficios">
-        <div style="text-align: center;">
-            <h2 class="section-headline">Diferenciais Aliança</h2>
+    <section class="released-section" id="liberados">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 class="section-headline reveal">Créditos Liberados <span>Recentemente</span></h2>
+            <p style="color: #94a3b8; font-size: 15px;">Resultados práticos de clientes que conquistaram seus objetivos este mês.</p>
         </div>
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon-wrapper"><i class="fa-solid fa-bolt"></i></div>
-                <h3>Aprovação rápida</h3>
-                <p>Análise de perfil otimizada na mesa de crédito para respostas céleres.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon-wrapper"><i class="fa-solid fa-headset"></i></div>
-                <h3>Atendimento presencial e online</h3>
-                <p>Estrutura física e digital montada para lhe dar suporte onde preferir.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon-wrapper"><i class="fa-solid fa-earth-americas"></i></div>
-                <h3>Crédito para todo Brasil</h3>
-                <p>Operações capilarizadas com validade jurídica e contratual nacional.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon-wrapper">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <div class="released-grid">
+            <div class="released-card reveal">
+                <div class="released-img-box">
+                    <span class="released-status">Entregue</span>
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=500&q=80" alt="Veículo Entregue">
                 </div>
-                <h3>Taxas competitivas</h3>
-                <p>Alinhamento direto com os melhores índices econômicos nacionais.</p>
+                <div class="released-content">
+                    <h4>Toyota Hilux SRX</h4>
+                    <div class="released-meta">
+                        <span><i class="fa-solid fa-dollar-sign"></i> <strong>Crédito:</strong> R$ 240.000,00</span>
+                        <span><i class="fa-solid fa-chart-pie"></i> <strong>Entrada:</strong> R$ 14.500,00</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Goiânia - GO</span>
+                    </div>
+                </div>
+            </div>
+            <div class="released-card reveal">
+                <div class="released-img-box">
+                    <span class="released-status">Entregue</span>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=80" alt="Imóvel Entregue">
+                </div>
+                <div class="released-content">
+                    <h4>Casa em Condomínio</h4>
+                    <div class="released-meta">
+                        <span><i class="fa-solid fa-dollar-sign"></i> <strong>Crédito:</strong> R$ 550.000,00</span>
+                        <span><i class="fa-solid fa-chart-pie"></i> <strong>Entrada:</strong> R$ 35.000,00</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Aparecida de Goiânia - GO</span>
+                    </div>
+                </div>
+            </div>
+            <div class="released-card reveal">
+                <div class="released-img-box">
+                    <span class="released-status">Entregue</span>
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=500&q=80" alt="Caminhão Entregue">
+                </div>
+                <div class="released-content">
+                    <h4>Volvo FH 540 Pesado</h4>
+                    <div class="released-meta">
+                        <span><i class="fa-solid fa-dollar-sign"></i> <strong>Crédito:</strong> R$ 480.000,00</span>
+                        <span><i class="fa-solid fa-chart-pie"></i> <strong>Entrada:</strong> R$ 25.000,00</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Rio Verde - GO</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="simulators" id="simulador">
-        <div style="text-align: center;">
-            <h2 class="section-headline">Soluções & <span>Simulador Inteligente</span></h2>
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 class="section-headline reveal">Simulador <span>Inteligente Aliança</span></h2>
         </div>
         <div class="sim-grid">
             
-            <div class="sim-card">
+            <div class="sim-card reveal">
                 <div class="card-img-container">
                     <span class="card-badge">Automóveis</span>
                     <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="Veículos Financiamento">
@@ -301,7 +408,7 @@
                         <div class="card-subtitle">Crédito facilitado para carros novos e seminovos.</div>
                         <ul class="feature-bullets">
                             <li><i class="fa-solid fa-check"></i> Entrada facilitada a partir de R$ 3.500</li>
-                            <li><i class="fa-solid fa-check"></i> Score baixo analisado de forma justa</li>
+                            <li><i class="fa-solid fa-check"></i> Análise personalizada de score baixo</li>
                         </ul>
                         <div class="slider-group">
                             <label>Valor do Crédito: <span id="carValT">R$ 60.000</span></label>
@@ -321,7 +428,7 @@
                 </div>
             </div>
 
-            <div class="sim-card">
+            <div class="sim-card reveal">
                 <div class="card-img-container">
                     <span class="card-badge">Motos</span>
                     <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&q=80" alt="Motos Parcelas">
@@ -329,18 +436,18 @@
                 <div class="card-content">
                     <div>
                         <h3>Motos</h3>
-                        <div class="card-subtitle">As melhores condições para conquistar sua duas rodas.</div>
+                        <div class="card-subtitle">Condições especiais para conquistar sua duas rodas de alta ou baixa cilindrada.</div>
                         <ul class="feature-bullets">
-                            <li><i class="fa-solid fa-check"></i> Prazo flexível a partir de 20 meses</li>
+                            <li><i class="fa-solid fa-check"></i> Prazo flexível e taxas reduzidas</li>
                             <li><i class="fa-solid fa-check"></i> Modelos novos e seminovos multimarcas</li>
                         </ul>
                         <div class="slider-group">
                             <label>Valor da Moto: <span id="motoValT">R$ 30.000</span></label>
-                            <input type="range" min="20000" max="100000" step="2000" value="30000" id="motoVal" oninput="runEngine()">
+                            <input type="range" min="10000" max="100000" step="2000" value="30000" id="motoVal" oninput="runEngine()">
                         </div>
                         <div class="slider-group">
                             <label>Entrada: <span id="motoEntT">R$ 3.500</span></label>
-                            <input type="range" min="3500" max="50000" step="500" value="3500" id="motoEnt" oninput="runEngine()">
+                            <input type="range" min="2000" max="50000" step="500" value="3500" id="motoEnt" oninput="runEngine()">
                         </div>
                         <div class="slider-group">
                             <label>Prazo: <span id="motoPrazoT">48 meses</span></label>
@@ -352,18 +459,18 @@
                 </div>
             </div>
 
-            <div class="sim-card">
+            <div class="sim-card reveal">
                 <div class="card-img-container">
                     <span class="card-badge">Pesados & Agro</span>
-                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80" alt="Caminhões e Maquinário de grande porte">
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80" alt="Caminhões e Maquinário">
                 </div>
                 <div class="card-content">
                     <div>
                         <h3>Caminhão & Pesados</h3>
-                        <div class="card-subtitle">Serve para pesados, caminhão, agro, apicultura, compra de gado, entre outros.</div>
+                        <div class="card-subtitle">Estruturação de frotas, caminhão, agro, compra de gado e implementos.</div>
                         <ul class="feature-bullets">
-                            <li><i class="fa-solid fa-check"></i> Renovação de frota corporativa, autônoma ou rural</li>
-                            <li><i class="fa-solid fa-check"></i> Planos sob medida para implementos e expansão</li>
+                            <li><i class="fa-solid fa-check"></i> Planos sob medida para produtores rurais e autônomos</li>
+                            <li><i class="fa-solid fa-check"></i> Sem taxas abusivas ou parcelas intermediárias</li>
                         </ul>
                         <div class="slider-group">
                             <label>Valor de Alocação: <span id="camValT">R$ 350.000</span></label>
@@ -383,97 +490,48 @@
                 </div>
             </div>
 
-            <div class="sim-card">
-                <div class="card-img-container">
-                    <span class="card-badge">Habitação</span>
-                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80" alt="Crédito Imobiliário">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Imóveis</h3>
-                        <div class="card-subtitle">Adquira sua casa própria, pontos comerciais ou terrenos.</div>
-                        <ul class="feature-bullets">
-                            <li><i class="fa-solid fa-check"></i> Aquisição residencial, comercial ou lotes</li>
-                            <li><i class="fa-solid fa-check"></i> Sem parcelas intermediárias surpresas</li>
-                        </ul>
-                        <div class="slider-group">
-                            <label>Valor Pretendido: <span id="imoValT">R$ 400.000</span></label>
-                            <input type="range" min="150000" max="3000000" step="50000" value="400000" id="imoVal" oninput="runEngine()">
-                        </div>
-                        <div class="slider-group">
-                            <label>Entrada: <span id="imoEntT">R$ 15.000</span></label>
-                            <input type="range" min="15000" max="500000" step="5000" value="15000" id="imoEnt" oninput="runEngine()">
-                        </div>
-                        <div class="slider-group">
-                            <label>Prazo: <span id="imoPrazoT">180 meses</span></label>
-                            <input type="range" min="120" max="240" step="12" value="180" id="imoPrazo" oninput="runEngine()">
-                        </div>
-                    </div>
-                    <div class="total-display-box"><p>Parcela Estimada</p><strong id="imoTotal">R$ 0,00</strong></div>
-                    <button class="btn-action-trigger" onclick="enviarWhatsApp('Imóvel', 'imoVal', 'imoEnt', 'imoPrazo', 'imoTotal')">Avançar com Especialista</button>
-                </div>
-            </div>
-
-            <div class="sim-card">
-                <div class="card-img-container">
-                    <span class="card-badge">Rentabilidade</span>
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Painel financeiro de investimentos e gráficos modernos">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Investimentos</h3>
-                        <div class="card-subtitle">Estratégia sob medida para alavancagem de capital.</div>
-                        <ul class="feature-bullets">
-                            <li><i class="fa-solid fa-check"></i> Alavancagem patrimonial e capital de giro</li>
-                            <li><i class="fa-solid fa-check"></i> Estruturação de fluxo para expansões</li>
-                        </ul>
-                        <div class="slider-group">
-                            <label>Aporte / Alvo: <span id="invValT">R$ 250.000</span></label>
-                            <input type="range" min="50000" max="2000000" step="25000" value="250000" id="invVal" oninput="runEngine()">
-                        </div>
-                        <div class="slider-group">
-                            <label>Entrada: <span id="invEntT">R$ 15.000</span></label>
-                            <input type="range" min="15000" max="400000" step="5000" value="15000" id="invEnt" oninput="runEngine()">
-                        </div>
-                        <div class="slider-group">
-                            <label>Prazo: <span id="invPrazoT">84 meses</span></label>
-                            <input type="range" min="36" max="120" step="12" value="84" id="invPrazo" oninput="runEngine()">
-                        </div>
-                    </div>
-                    <div class="total-display-box"><p>Parcela Estimada</p><strong id="invTotal">R$ 0,00</strong></div>
-                    <button class="btn-action-trigger" onclick="enviarWhatsApp('Investimento', 'invVal', 'invEnt', 'invPrazo', 'invTotal')">Avançar com Especialista</button>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <section class="testimonials-section" id="depoimentos">
-        <h2 class="section-headline">Depoimentos pelo Brasil</h2>
-        <div class="carousel-container">
+        <h2 class="section-headline reveal">O que dizem os <span>nossos clientes</span></h2>
+        <p style="color: #94a3b8; font-size: 15px;" class="reveal">Histórias reais de sucesso e patrimônios ampliados.</p>
+        <div class="carousel-container reveal">
             <div class="carousel-track" id="track">
                 <div class="carousel-slide">
                     <div class="testimonial-bubble">
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
-                        <p>“Consegui meu HB20 com parcelas que cabiam no meu orçamento.”</p>
-                        <div class="testimonial-author">Thiago Mendonça <span>Goiânia - GO</span></div>
+                        <p>“Fui muito bem atendido na Aliança. Consegui liberar o crédito para comprar meu carro à vista e a parcela ficou excelente dentro do simulador do site.”</p>
+                        <div class="testimonial-profile">
+                            <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+                            <div class="testimonial-author">Thiago Mendonça <span>Goiânia - GO</span></div>
+                        </div>
                     </div>
                     <div class="testimonial-bubble">
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
-                        <p>“Atendimento excelente do início ao fim.”</p>
-                        <div class="testimonial-author">Camila Rodrigues <span>Uberlândia - MG</span></div>
+                        <p>“Processo limpo, rápido e muito transparente. Me deram todo suporte na documentação contratuais. Indico de olhos fechados!”</p>
+                        <div class="testimonial-profile">
+                            <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+                            <div class="testimonial-author">Camila Rodrigues <span>Uberlândia - MG</span></div>
+                        </div>
                     </div>
                 </div>
                 <div class="carousel-slide">
                     <div class="testimonial-bubble">
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
-                        <p>“Taxas incríveis para a linha agro. Adquiri meu trator novo sem burocracias desnecessárias.”</p>
-                        <div class="testimonial-author">Ricardo Fontana <span>Sorriso - MT</span></div>
+                        <p>“Excelente atendimento para a linha Agro. Comprei meu maquinário pesado novo sem as burocracias absurdas de bancos tradicionais.”</p>
+                        <div class="testimonial-profile">
+                            <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+                            <div class="testimonial-author">Ricardo Fontana <span>Sorriso - MT</span></div>
+                        </div>
                     </div>
                     <div class="testimonial-bubble">
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
-                        <p>“Processo super transparente. O valor das parcelas ficou exatamente igual ao simulador do site.”</p>
-                        <div class="testimonial-author">Letícia Soares <span>Salvador - BA</span></div>
+                        <p>“Tive o suporte presencial e digital, equipe altamente qualificada. Recomendo para quem busca investir com segurança jurídica.”</p>
+                        <div class="testimonial-profile">
+                            <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+                            <div class="testimonial-author">Letícia Soares <span>Salvador - BA</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -482,17 +540,69 @@
         <button class="carousel-nav-btn" onclick="moveCarousel(1)"><i class="fa-solid fa-arrow-right"></i></button>
     </section>
 
+    <section class="faq-section" id="faq">
+        <div style="text-align: center;">
+            <h2 class="section-headline reveal">Perguntas <span>Frequentes</span></h2>
+            <p style="color: #94a3b8; font-size: 15px;" class="reveal">Esclareça suas principais dúvidas sobre nossos modelos de alocação.</p>
+        </div>
+        <div class="faq-container reveal">
+            <div class="faq-item">
+                <button class="faq-trigger">Como funciona a simulação e o processo de contratação? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-content">
+                    <p>Ao escolher os valores desejados nos sliders e clicar em "Avançar", nossa mesa de crédito recebe sua solicitação. Nós entramos em contato para verificar a documentação básica e submeter ao sistema de liberação otimizada.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">É possível fazer o processo 100% online? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-content">
+                    <p>Sim! Possuímos ferramentas de assinatura digital com validade jurídica nacional, permitindo que você realize toda a operação do conforto da sua casa, não importa o estado em que resida.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">Quem possui score baixo tem chance de aprovação? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-content">
+                    <p>Com certeza. Diferente de agências bancárias comuns que reprovam via inteligência artificial fria, nossa equipe realiza uma análise técnica humana sobre o seu perfil econômico, criando uma estrutura de entrada que maximize a aceitação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 Aliança Investimentos & Consórcios | Goiânia - GO</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h5 style="color: #fff; font-family: 'Montserrat', sans-serif;">ALIANÇA</h5>
+                <p>Realizando sonhos e ampliando patrimônios com seriedade, transparência e compromisso com o futuro dos nossos clientes em todo o Brasil.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Atendimento</h5>
+                <p><i class="fa-solid fa-location-dot"></i> Av. T-7, Setor Oeste, Goiânia - GO</p>
+                <p><i class="fa-solid fa-clock"></i> Segunda a Sexta: 09:00 às 18:00</p>
+            </div>
+            <div class="footer-col">
+                <h5>Links Úteis</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#simulador">Simulador</a></li>
+                    <li><a href="#por-que-alianca">Políticas de Segurança</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aliança Investimentos & Consórcios. Todos os direitos reservados. Operações estruturadas de acordo com as normas vigentes do BACEN.</p>
+        </div>
     </footer>
 
-    <a href="https://wa.me/5562981956336" class="whatsapp-float-link" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <div class="whatsapp-float-container">
+        <a href="https://wa.me/5562981956336?text=Olá,%20gostaria%20de%20falar%20com%20um%20especialista!" class="whatsapp-float-link" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Fale com um especialista</span>
+        </a>
+    </div>
 
     <script>
         function fmt(v) { return 'R$ ' + parseInt(v).toLocaleString('pt-BR'); }
 
+        // ENGINE DE CALCULO SUCESSIVO
         function runEngine() {
             // VEÍCULOS
             let cV = parseInt(document.getElementById('carVal').value);
@@ -501,7 +611,7 @@
             if(cE >= cV){ cE = cV - 1000; document.getElementById('carEnt').value = cE; }
             document.getElementById('carValT').innerText = fmt(cV);
             document.getElementById('carEntT').innerText = fmt(cE);
-            document.getElementById('carPrazoT').innerText = cP + 'x';
+            document.getElementById('carPrazoT').innerText = cP + ' meses';
             let cJ = cV >= 60000 ? 1.225 : 1.19;
             document.getElementById('carTotal').innerText = (((cV - cE) * cJ) / cP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
@@ -512,7 +622,7 @@
             if(mE >= mV){ mE = mV - 1000; document.getElementById('motoEnt').value = mE; }
             document.getElementById('motoValT').innerText = fmt(mV);
             document.getElementById('motoEntT').innerText = fmt(mE);
-            document.getElementById('motoPrazoT').innerText = mP + 'x';
+            document.getElementById('motoPrazoT').innerText = mP + ' meses';
             let mJ = mV >= 60000 ? 1.225 : 1.19;
             document.getElementById('motoTotal').innerText = (((mV - mE) * mJ) / mP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
@@ -525,47 +635,75 @@
             document.getElementById('camEntT').innerText = fmt(camE);
             document.getElementById('camPrazoT').innerText = camP + ' meses';
             document.getElementById('camTotal').innerText = (((camV - camE) * 1.27) / camP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
-
-            // IMÓVEIS
-            let iV = parseInt(document.getElementById('imoVal').value);
-            let iE = parseInt(document.getElementById('imoEnt').value);
-            let iP = parseInt(document.getElementById('imoPrazo').value);
-            if(iE >= iV){ iE = iV - 10000; document.getElementById('imoEnt').value = iE; }
-            document.getElementById('imoValT').innerText = fmt(iV);
-            document.getElementById('imoEntT').innerText = fmt(iE);
-            document.getElementById('imoPrazoT').innerText = iP + ' meses';
-            document.getElementById('imoTotal').innerText = (((iV - iE) * 1.26) / iP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
-
-            // INVESTIMENTOS
-            let invV = parseInt(document.getElementById('invVal').value);
-            let invE = parseInt(document.getElementById('invEnt').value);
-            let invP = parseInt(document.getElementById('invPrazo').value);
-            if(invE >= invV){ invE = invV - 5000; document.getElementById('invEnt').value = invE; }
-            document.getElementById('invValT').innerText = fmt(invV);
-            document.getElementById('invEntT').innerText = fmt(invE);
-            document.getElementById('invPrazoT').innerText = invP + ' meses';
-            document.getElementById('invTotal').innerText = (((invV - invE) * 1.25) / invP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
         }
 
-        // FUNÇÃO DE MENSAGEM NATURAL FLUIDA
+        // MOTOR DE MENSAGEM NATURAL FLUIDA EXATA
         function enviarWhatsApp(categoria, idVal, idEnt, idPrazo, idTotal) {
             let valor = parseInt(document.getElementById(idVal).value).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
             let entrada = parseInt(document.getElementById(idEnt).value).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
             let prazo = document.getElementById(idPrazo).value;
             let parcela = document.getElementById(idTotal).innerText;
             
-            // Texto formatado para o fluxo natural solicitado
             let texto = `Olá, fiz uma simulação para *${categoria}* no valor de *${valor}*, entrada de *${entrada}*, com prazo de *${prazo} meses* e parcelas de *${parcela}*. Gostaria de mais informações!`;
             
             let url = `https://wa.me/5562981956336?text=${encodeURIComponent(texto)}`;
             window.open(url, '_blank');
         }
 
+        // CARROSSEL INTERATIVO
         function moveCarousel(index) {
             document.getElementById('track').style.transform = 'translateX(' + (index * -50) + '%)';
         }
 
-        window.onload = function() { runEngine(); }
+        // ACCORDION FAQ
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.parentElement;
+                item.classList.toggle('open');
+            });
+        });
+
+        // REVEAL ANIMATIONS ON SCROLL (AOS Rústico Eficiente)
+        function checkReveal() {
+            let reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveal.getBoundingClientRect().top;
+                let elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveal);
+
+        // CONTADORES NUMÉRICOS DINÂMICOS ANIMADOS
+        function runCounters() {
+            let counters = document.querySelectorAll('.counter-val');
+            counters.forEach(counter => {
+                let target = +counter.getAttribute('data-target');
+                let count = 0;
+                let speed = target / 40; 
+                let updateCount = () => {
+                    count += speed;
+                    if(count < target) {
+                        counter.innerText = "+" + Math.ceil(count);
+                        setTimeout(updateCount, 25);
+                    } else {
+                        counter.innerText = "+" + target.toLocaleString('pt-BR');
+                    }
+                }
+                updateCount();
+            });
+        }
+
+        window.onload = function() { 
+            runEngine(); 
+            checkReveal();
+            runCounters();
+            // Ativa elementos do topo imediatamente
+            document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('active'));
+        }
     </script>
 </body>
 </html>

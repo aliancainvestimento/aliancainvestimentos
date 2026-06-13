@@ -150,7 +150,8 @@
         .card-badge { position: absolute; top: 20px; left: 20px; background: rgba(3, 10, 22, 0.8); backdrop-filter: blur(5px); border: 1px solid var(--gold); color: #ffffff; padding: 6px 14px; border-radius: 50px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
         .card-content { padding: 40px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-content h3 { font-family: 'Montserrat', sans-serif; font-size: 26px; color: #ffffff; font-weight: 700; margin-bottom: 15px; }
+        .card-content h3 { font-family: 'Montserrat', sans-serif; font-size: 26px; color: #ffffff; font-weight: 700; margin-bottom: 6px; }
+        .card-subtitle { font-size: 13px; color: #94a3b8; line-height: 1.5; margin-bottom: 20px; font-weight: 500; }
         
         .feature-bullets { list-style: none; margin-bottom: 30px; }
         .feature-bullets li { font-size: 14.5px; color: #cbd5e1; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
@@ -201,6 +202,7 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 40px; }
             .carousel-slide { grid-template-columns: 1fr; }
+            .sim-grid { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
         }
     </style>
 </head>
@@ -296,6 +298,7 @@
                 <div class="card-content">
                     <div>
                         <h3>Veículos</h3>
+                        <div class="card-subtitle">Crédito facilitado para carros novos e seminovos.</div>
                         <ul class="feature-bullets">
                             <li><i class="fa-solid fa-check"></i> Entrada facilitada a partir de R$ 3.500</li>
                             <li><i class="fa-solid fa-check"></i> Score baixo analisado de forma justa</li>
@@ -326,6 +329,7 @@
                 <div class="card-content">
                     <div>
                         <h3>Motos</h3>
+                        <div class="card-subtitle">As melhores condições para conquistar sua duas rodas.</div>
                         <ul class="feature-bullets">
                             <li><i class="fa-solid fa-check"></i> Prazo flexível a partir de 20 meses</li>
                             <li><i class="fa-solid fa-check"></i> Modelos novos e seminovos multimarcas</li>
@@ -350,18 +354,19 @@
 
             <div class="sim-card">
                 <div class="card-img-container">
-                    <span class="card-badge">Pesados</span>
-                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80" alt="Caminhões Frota">
+                    <span class="card-badge">Pesados & Agro</span>
+                    <img src="https://images.unsplash.com/photo-1586191582056-a15cd3a5d9fb?w=600&q=80" alt="Caminhões e Maquinário de grande porte">
                 </div>
                 <div class="card-content">
                     <div>
-                        <h3>Caminhões</h3>
+                        <h3>Caminhão & Pesados</h3>
+                        <div class="card-subtitle">Serve para pesados, caminhão, agro, apicultura, compra de gado, entre outros.</div>
                         <ul class="feature-bullets">
-                            <li><i class="fa-solid fa-check"></i> Renovação de frota corporativa ou autônoma</li>
-                            <li><i class="fa-solid fa-check"></i> Opções estruturadas via consórcio e giro</li>
+                            <li><i class="fa-solid fa-check"></i> Renovação de frota corporativa, autônoma ou rural</li>
+                            <li><i class="fa-solid fa-check"></i> Planos sob medida para implementos e expansão</li>
                         </ul>
                         <div class="slider-group">
-                            <label>Valor do Caminhão: <span id="camValT">R$ 350.000</span></label>
+                            <label>Valor de Alocação: <span id="camValT">R$ 350.000</span></label>
                             <input type="range" min="100000" max="1500000" step="25000" value="350000" id="camVal" oninput="runEngine()">
                         </div>
                         <div class="slider-group">
@@ -374,7 +379,7 @@
                         </div>
                     </div>
                     <div class="total-display-box"><p>Parcela Estimada</p><strong id="camTotal">R$ 0,00</strong></div>
-                    <button class="btn-action-trigger" onclick="alert('Solicitação de Caminhões enviada!')">Avançar com Especialista</button>
+                    <button class="btn-action-trigger" onclick="alert('Solicitação de Linha Pesados/Agro enviada!')">Avançar com Especialista</button>
                 </div>
             </div>
 
@@ -386,6 +391,7 @@
                 <div class="card-content">
                     <div>
                         <h3>Imóveis</h3>
+                        <div class="card-subtitle">Adquira sua casa própria, pontos comerciais ou terrenos.</div>
                         <ul class="feature-bullets">
                             <li><i class="fa-solid fa-check"></i> Aquisição residencial, comercial ou lotes</li>
                             <li><i class="fa-solid fa-check"></i> Sem parcelas intermediárias surpresas</li>
@@ -410,42 +416,13 @@
 
             <div class="sim-card">
                 <div class="card-img-container">
-                    <span class="card-badge">Agronegócio</span>
-                    <img src="https://images.unsplash.com/photo-1530261869140-5499252c879d?w=600&auto=format&fit=crop&q=80" alt="Trator moderno trabalhando no campo">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Agro</h3>
-                        <ul class="feature-bullets">
-                            <li><i class="fa-solid fa-check"></i> Compra de fazendas, gado de corte ou leite</li>
-                            <li><i class="fa-solid fa-check"></i> Tratores, implementos e apicultura comercial</li>
-                        </ul>
-                        <div class="slider-group">
-                            <label>Valor de Alocação: <span id="agroValT">R$ 500.000</span></label>
-                            <input type="range" min="100000" max="5000000" step="50000" value="500000" id="agroVal" oninput="runEngine()">
-                        </div>
-                        <div class="slider-group">
-                            <label>Entrada: <span id="agroEntT">R$ 15.000</span></label>
-                            <input type="range" min="15000" max="800000" step="5000" value="15000" id="agroEnt" oninput="runEngine()">
-                        </div>
-                        <div class="slider-group">
-                            <label>Prazo: <span id="agroPrazoT">120 meses</span></label>
-                            <input type="range" min="60" max="180" step="12" value="120" id="agroPrazo" oninput="runEngine()">
-                        </div>
-                    </div>
-                    <div class="total-display-box"><p>Parcela Estimada</p><strong id="agroTotal">R$ 0,00</strong></div>
-                    <button class="btn-action-trigger" onclick="alert('Solicitação Agro enviada!')">Avançar com Especialista</button>
-                </div>
-            </div>
-
-            <div class="sim-card">
-                <div class="card-img-container">
                     <span class="card-badge">Rentabilidade</span>
-                    <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?w=600&q=80" alt="Giro Estratégico">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Painel financeiro de investimentos e gráficos modernos">
                 </div>
                 <div class="card-content">
                     <div>
                         <h3>Investimentos</h3>
+                        <div class="card-subtitle">Estratégia sob medida para alavancagem de capital.</div>
                         <ul class="feature-bullets">
                             <li><i class="fa-solid fa-check"></i> Alavancagem patrimonial e capital de giro</li>
                             <li><i class="fa-solid fa-check"></i> Estruturação de fluxo para expansões</li>
@@ -549,7 +526,7 @@
             document.getElementById('camPrazoT').innerText = camP + ' meses';
             document.getElementById('camTotal').innerText = (((camV - camE) * 1.27) / camP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
-            // IMÓVEIS (TAXA DE 26%)
+            // IMÓVEIS
             let iV = parseInt(document.getElementById('imoVal').value);
             let iE = parseInt(document.getElementById('imoEnt').value);
             let iP = parseInt(document.getElementById('imoPrazo').value);
@@ -558,16 +535,6 @@
             document.getElementById('imoEntT').innerText = fmt(iE);
             document.getElementById('imoPrazoT').innerText = iP + ' meses';
             document.getElementById('imoTotal').innerText = (((iV - iE) * 1.26) / iP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
-
-            // AGRO
-            let aV = parseInt(document.getElementById('agroVal').value);
-            let aE = parseInt(document.getElementById('agroEnt').value);
-            let aP = parseInt(document.getElementById('agroPrazo').value);
-            if(aE >= aV){ aE = aV - 10000; document.getElementById('agroEnt').value = aE; }
-            document.getElementById('agroValT').innerText = fmt(aV);
-            document.getElementById('agroEntT').innerText = fmt(aE);
-            document.getElementById('agroPrazoT').innerText = aP + ' meses';
-            document.getElementById('agroTotal').innerText = (((aV - aE) * 1.27) / aP).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 
             // INVESTIMENTOS
             let invV = parseInt(document.getElementById('invVal').value);

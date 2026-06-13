@@ -194,7 +194,7 @@
         .btn-action-trigger { width: 100%; background: linear-gradient(135deg, var(--royal-blue) 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 14px; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; cursor: pointer; margin-top: 20px; transition: 0.3s; box-shadow: 0 4px 15px rgba(37,99,235,0.15); text-decoration: none; display: block; text-align: center; }
         .btn-action-trigger:hover { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: var(--navy-deep); transform: scale(1.02); }
 
-        /* DEPOIMENTOS COM FOTO DE PERFIL PROFISSIONAL */
+        /* DEPOIMENTOS COM FOTO DE PERFIL REAL E PROFISSIONAL */
         .testimonials-section { padding: 100px 5%; background: var(--navy-deep); text-align: center; position: relative; }
         .carousel-container { max-width: 1100px; margin: 40px auto 0; position: relative; overflow: hidden; }
         .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); width: 200%; }
@@ -205,7 +205,8 @@
         .testimonial-bubble p { color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin-bottom: 25px; }
         
         .testimonial-profile { display: flex; align-items: center; gap: 15px; }
-        .testimonial-avatar { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--gold); background: #0c213a; display: flex; align-items: center; justify-content: center; color: var(--gold-light); font-size: 18px; }
+        .testimonial-avatar { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; background: #0c213a; }
+        .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; }
         .testimonial-author { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #ffffff; display: flex; flex-direction: column; }
         .testimonial-author span { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 12px; color: #64748b; margin-top: 3px; }
         
@@ -329,7 +330,7 @@
             </div>
             <div class="trust-card reveal">
                 <div class="trust-icon"><i class="fa-solid fa-user-tie"></i></div>
-                <h3>Mesa Técnica Analítica</h3>
+                <h3>Mesa Técnico Analítica</h3>
                 <p>Profissionais experientes que reestruturam o seu perfil financeiro para garantir o maior índice de aprovação.</p>
             </div>
             <div class="trust-card reveal">
@@ -363,13 +364,13 @@
             <div class="released-card reveal">
                 <div class="released-img-box">
                     <span class="released-status">Entregue</span>
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=80" alt="Imóvel Entregue">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=500&q=80" alt="Casa Residencial Entregue">
                 </div>
                 <div class="released-content">
-                    <h4>Casa em Condomínio</h4>
+                    <h4>Casa Residencial</h4>
                     <div class="released-meta">
-                        <span><i class="fa-solid fa-dollar-sign"></i> <strong>Crédito:</strong> R$ 550.000,00</span>
-                        <span><i class="fa-solid fa-chart-pie"></i> <strong>Entrada:</strong> R$ 35.000,00</span>
+                        <span><i class="fa-solid fa-dollar-sign"></i> <strong>Crédito:</strong> R$ 320.000,00</span>
+                        <span><i class="fa-solid fa-chart-pie"></i> <strong>Entrada:</strong> R$ 18.000,00</span>
                         <span><i class="fa-solid fa-location-dot"></i> Aparecida de Goiânia - GO</span>
                     </div>
                 </div>
@@ -503,16 +504,16 @@
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
                         <p>“Fui muito bem atendido na Aliança. Consegui liberar o crédito para comprar meu carro à vista e a parcela ficou excelente dentro do simulador do site.”</p>
                         <div class="testimonial-profile">
-                            <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
-                            <div class="testimonial-author">Thiago Mendonça <span>Goiânia - GO</span></div>
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80" alt="Foto Mariana"></div>
+                            <div class="testimonial-author">Mariana Silva <span>Goiânia - GO</span></div>
                         </div>
                     </div>
                     <div class="testimonial-bubble">
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
                         <p>“Processo limpo, rápido e muito transparente. Me deram todo suporte na documentação contratuais. Indico de olhos fechados!”</p>
                         <div class="testimonial-profile">
-                            <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
-                            <div class="testimonial-author">Camila Rodrigues <span>Uberlândia - MG</span></div>
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80" alt="Foto Carlos"></div>
+                            <div class="testimonial-author">Carlos Eduardo <span>Anápolis - GO</span></div>
                         </div>
                     </div>
                 </div>
@@ -521,7 +522,7 @@
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
                         <p>“Excelente atendimento para a linha Agro. Comprei meu maquinário pesado novo sem as burocracias absurdas de bancos tradicionais.”</p>
                         <div class="testimonial-profile">
-                            <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&q=80" alt="Foto Ricardo"></div>
                             <div class="testimonial-author">Ricardo Fontana <span>Sorriso - MT</span></div>
                         </div>
                     </div>
@@ -529,8 +530,8 @@
                         <div class="stars-row">⭐⭐⭐⭐⭐</div>
                         <p>“Tive o suporte presencial e digital, equipe altamente qualificada. Recomendo para quem busca investir com segurança jurídica.”</p>
                         <div class="testimonial-profile">
-                            <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
-                            <div class="testimonial-author">Letícia Soares <span>Salvador - BA</span></div>
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&q=80" alt="Foto Leticia"></div>
+                            <div class="testimonial-author">Letícia Soares <span>Aparecida de Goiânia - GO</span></div>
                         </div>
                     </div>
                 </div>
